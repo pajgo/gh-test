@@ -1,5 +1,0 @@
-```json
-{
-  "additionalProperties": false
-}
-```
