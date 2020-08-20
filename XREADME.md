@@ -46,21 +46,6 @@
 	- [List sales](#List-sales)
 	- [Sync sale](#Sync-sale)
 	
-- [SchemaDefinitions](#SchemaDefinitions)
-	- [[common] Agreement object](#[common]-Agreement-object)
-	- [[common] Definitions](#[common]-Definitions)
-	- [[common] Extra `DataTypes`](#[common]-Extra-`DataTypes`)
-	- [[common] Sale object](#[common]-Sale-object)
-	- [[common] Subscription object](#[common]-Subscription-object)
-	- [[common]: Payment plan object](#[common]:-Payment-plan-object)
-	- [[response.common] Agreement object](#[response.common]-Agreement-object)
-	- [[response.common] Payment plan object](#[response.common]-Payment-plan-object)
-	- [[response.common] Sale object](#[response.common]-Sale-object)
-	- [[response.common] Subscription object](#[response.common]-Subscription-object)
-	- [[response.common] Transaction common information object](#[response.common]-Transaction-common-information-object)
-	- [[response.common] Transaction information object](#[response.common]-Transaction-information-object)
-	- [[response.common] Transaction object](#[response.common]-Transaction-object)
-	
 - [Transaction](#Transaction)
 	- [Aggregate transaction](#Aggregate-transaction)
 	- [Common transaction data](#Common-transaction-data)
@@ -68,6 +53,21 @@
 	- [List transactions](#List-transactions)
 	- [Sync transactions](#Sync-transactions)
 	- [Sync Updated transactions](#Sync-Updated-transactions)
+	
+- [zSchemaDefinitions](#zSchemaDefinitions)
+	- [[common] Agreement object](#[common]-Agreement-object)
+	- [[common] Definitions](#[common]-Definitions)
+	- [[common] Extra `DataTypes`](#[common]-Extra-`DataTypes`)
+	- [[common] Payment plan object](#[common]-Payment-plan-object)
+	- [[common] Sale object](#[common]-Sale-object)
+	- [[common] Subscription object](#[common]-Subscription-object)
+	- [[response.common] Agreement object](#[response.common]-Agreement-object)
+	- [[response.common] Payment plan object](#[response.common]-Payment-plan-object)
+	- [[response.common] Sale object](#[response.common]-Sale-object)
+	- [[response.common] Subscription object](#[response.common]-Subscription-object)
+	- [[response.common] Transaction common information object](#[response.common]-Transaction-common-information-object)
+	- [[response.common] Transaction information object](#[response.common]-Transaction-information-object)
+	- [[response.common] Transaction object](#[response.common]-Transaction-object)
 	
 
 # <a name='Agreement'></a> Agreement
@@ -1696,7 +1696,360 @@ Properties:
 
 
 **[⬆ Back to Top](#top)**
-# <a name='SchemaDefinitions'></a> SchemaDefinitions
+# <a name='Transaction'></a> Transaction
+## <a name='Aggregate-transaction'></a> Aggregate transaction
+<p>Performs aggregate operation on filtered transactions</p>
+
+Исходный файл [src/actions/transaction/aggregate.js](src/actions/transaction/aggregate.js).
+```
+AMQP &lt;prefix&gt;.transaction.aggregate
+```
+
+
+### Request schema
+
+`{object}` 
+Constraints: `required`: `owners,aggregate`
+
+Additional properties allowed: `true`
+
+
+Properties:
+
+
+ - **owners**
+    `{array}` <a name="transaction.aggregate--/properties/owners"/>
+    Constraints: `minItems`: `1`
+    
+    Each item should be:
+    
+    
+     - <a href="#common--/definitions/owner">(common#/definitions/owner)</a>
+    
+ - **filter**
+    <a href="#common--/definitions/filter">(common#/definitions/filter)</a>
+ - **aggregate**
+    `{object}` <a name="transaction.aggregate--/properties/aggregate"/>
+    Constraints: `minProperties`: `1`
+    
+    Additional properties allowed: `true`
+    
+    
+    Additional properties should be:
+    
+    
+    
+     - `{string}`Constraints: `enum`: `sum`
+    
+    
+    
+
+
+### Response schema:
+
+`{array}` 
+
+Each item should be:
+
+
+ - `{object}` 
+ - 
+    Additional properties allowed: `true`
+    
+ - 
+    Properties:
+    
+     - **amount**
+        `{number}`
+    
+
+
+
+
+
+**[⬆ Back to Top](#top)**
+## <a name='Common-transaction-data'></a> Common transaction data
+<p>Retrieves common transaction information for filtered transactions</p>
+
+Исходный файл [src/actions/transaction/common.js](src/actions/transaction/common.js).
+```
+AMQP &lt;prefix&gt;.transaction.common
+```
+
+
+### Request schema
+
+`{object}` 
+
+Additional properties allowed: `true`
+
+
+Properties:
+
+
+ - **offset**
+    `{integer}`Constraints: `minimum`: `0`
+ - **limit**
+    `{integer}`Constraints: `minimum`: `1`, `maximum`: `100`
+ - **order**
+    `{string}`Constraints: `enum`: `ASC,DESC`
+ - **criteria**
+    `{string}`
+ - **owner**
+    <a href="#common--/definitions/owner">(common#/definitions/owner)</a>
+ - **type**
+    `{string}`Constraints: `enum`: `sale,subscription`
+ - **filter**
+    <a href="#common--/definitions/filter">(common#/definitions/filter)</a>
+
+
+### Response schema:
+
+`{object}` 
+Constraints: `required`: `items,cursor,page,pages`
+
+Additional properties allowed: `true`
+
+
+Properties:
+
+
+ - **items**
+    `{array}` <a name="response.transaction.common--/properties/items"/>
+    
+    Each item should be:
+    
+    
+     - <a href="#response.common.transaction-common--">(response.common.transaction-common#)</a>
+    
+ - **cursor**
+    `{number}`
+ - **page**
+    `{number}`
+ - **pages**
+    `{number}`
+
+
+
+
+
+**[⬆ Back to Top](#top)**
+## <a name='Get-transaction'></a> Get transaction
+<p>Returns selected trasactions common data</p>
+
+Исходный файл [src/actions/transaction/get.js](src/actions/transaction/get.js).
+```
+AMQP &lt;prefix&gt;.transaction.get
+```
+
+
+### Request schema
+
+`{object}` 
+Constraints: `required`: `owners,aggregate`
+
+Additional properties allowed: `true`
+
+
+Properties:
+
+
+ - **owners**
+    `{array}` <a name="transaction.aggregate--/properties/owners"/>
+    Constraints: `minItems`: `1`
+    
+    Each item should be:
+    
+    
+     - <a href="#common--/definitions/owner">(common#/definitions/owner)</a>
+    
+ - **filter**
+    <a href="#common--/definitions/filter">(common#/definitions/filter)</a>
+ - **aggregate**
+    `{object}` <a name="transaction.aggregate--/properties/aggregate"/>
+    Constraints: `minProperties`: `1`
+    
+    Additional properties allowed: `true`
+    
+    
+    Additional properties should be:
+    
+    
+    
+     - `{string}`Constraints: `enum`: `sum`
+    
+    
+    
+
+
+### Response schema:
+
+`{array}` 
+
+Each item should be:
+
+
+ - `{object}` 
+ - 
+    Additional properties allowed: `true`
+    
+ - 
+    Properties:
+    
+     - **amount**
+        `{number}`
+    
+
+
+
+
+
+**[⬆ Back to Top](#top)**
+## <a name='List-transactions'></a> List transactions
+<p>Return the list of the agreement transactions data</p>
+
+Исходный файл [src/actions/transaction/list.js](src/actions/transaction/list.js).
+```
+AMQP &lt;prefix&gt;.transaction.list
+```
+
+
+### Request schema
+
+`{object}` 
+
+Additional properties allowed: `true`
+
+
+Properties:
+
+
+ - **offset**
+    `{integer}`Constraints: `minimum`: `0`
+ - **limit**
+    `{integer}`Constraints: `minimum`: `1`, `maximum`: `100`
+ - **filter**
+    <a href="#common--/definitions/filter">(common#/definitions/filter)</a>
+ - **criteria**
+    `{string}`Constraints: `minLength`: `1`
+ - **order**
+    `{string}`Constraints: `enum`: `ASC,DESC`
+ - **owner**
+    <a href="#common--/definitions/owner">(common#/definitions/owner)</a>
+
+
+### Response schema:
+
+`{object}` 
+Constraints: `required`: `items,cursor,page,pages`
+
+Additional properties allowed: `true`
+
+
+Properties:
+
+
+ - **items**
+    `{array}` <a name="response.transaction.list--/properties/items"/>
+    
+    Each item should be:
+    
+    
+     - <a href="#response.common.transaction--">(response.common.transaction#)</a>
+    
+ - **cursor**
+    `{number}`
+ - **page**
+    `{number}`
+ - **pages**
+    `{number}`
+
+
+
+
+
+**[⬆ Back to Top](#top)**
+## <a name='Sync-transactions'></a> Sync transactions
+<p>Syncs transactions for agreement</p>
+
+Исходный файл [src/actions/transaction/sync.js](src/actions/transaction/sync.js).
+```
+AMQP &lt;prefix&gt;.transaction.sync
+```
+
+
+### Request schema
+
+`{object}` 
+Constraints: `required`: `id`
+
+Additional properties allowed: `true`
+
+
+Properties:
+
+
+ - **owner**
+    <a href="#common--/definitions/owner">(common#/definitions/owner)</a>
+ - **id**
+    `{string}`Constraints: `minLength`: `1`
+ - **start**
+    `{string}`Constraints: `format`: `date`
+ - **end**
+    `{string}`Constraints: `format`: `date`
+
+
+### Response schema:
+
+`{object}` 
+
+Additional properties allowed: `true`
+
+
+Properties:
+
+
+ - **agreement**
+    <a href="#response.common.agreement--">(response.common.agreement#)</a>
+ - **transactions**
+    `{array}` <a name="response.transaction.sync--/properties/transactions"/>
+    
+    Each item should be:
+    
+    
+     - <a href="#response.common.transaction-info--">(response.common.transaction-info#)</a>
+    
+
+
+
+
+
+**[⬆ Back to Top](#top)**
+## <a name='Sync-Updated-transactions'></a> Sync Updated transactions
+<p>Syncs updated transactions for agreement</p>
+
+Исходный файл [src/actions/transaction/sync-updated.js](src/actions/transaction/sync-updated.js).
+```
+AMQP &lt;prefix&gt;.transaction.sync-updated
+```
+
+
+### Request schema
+
+`{object}` 
+
+Additional properties allowed: `true`
+
+
+### Response schema:
+
+`{number}`
+
+
+
+
+**[⬆ Back to Top](#top)**
+# <a name='zSchemaDefinitions'></a> zSchemaDefinitions
 ## <a name='[common]-Agreement-object'></a> [common] Agreement object
 Agreement object structure
 
@@ -2338,6 +2691,111 @@ SCHEMA data-types
 
 
 **[⬆ Back to Top](#top)**
+## <a name='[common]-Payment-plan-object'></a> [common] Payment plan object
+Исходный файл [plan.json](plan.json).
+```
+SCHEMA plan
+```
+
+
+
+### Schema
+
+`{object}` 
+Constraints: `required`: `name,description,type,payment_definitions`
+
+Additional properties allowed: `true`
+
+
+Properties:
+
+
+ - **id**
+    `{string}`Constraints: `minLength`: `1`
+ - **name**
+    `{string}`Constraints: `minLength`: `1`
+ - **description**
+    `{string}`Constraints: `minLength`: `1`
+ - **type**
+    <a href="#plan--/definitions/type">(#/definitions/type)</a>
+ - **state**
+    `{string}`Constraints: `minLength`: `1`
+ - **create_time**
+    `{string}`Constraints: `minLength`: `1`
+ - **update_time**
+    `{string}`Constraints: `minLength`: `1`
+ - **payment_definitions**
+    `{array}` <a name="plan--/properties/payment_definitions"/>
+    
+    Each item should be:
+    
+    
+     - <a href="#common--/definitions/payment_definition">(common#/definitions/payment_definition)</a>
+    
+ - **terms**
+    `{array}` <a name="plan--/properties/terms"/>
+    
+    Each item should be:
+    
+    
+     - <a href="#common--/definitions/term">(common#/definitions/term)</a>
+    
+ - **merchant_preferences**
+    <a href="#common--/definitions/merchant_preferences">(common#/definitions/merchant_preferences)</a>
+ - **links**
+    `{array}` <a name="plan--/properties/links"/>
+    
+    Each item should be:
+    
+    
+     - <a href="#common--/definitions/links">(common#/definitions/links)</a>
+    
+
+
+**Definitions**:
+
+
+ - **plan#/definitions/meta**
+    `{object}` <a name="plan--/definitions/meta"/>
+    
+    Variable metadata object
+    
+    
+    Additional properties allowed: `true`
+    
+    
+    Additional properties should be:
+    
+    
+    
+     - <a href="#plan--/definitions/feature">(#/definitions/feature)</a>
+    
+    
+    
+ - **plan#/definitions/level**
+    `{integer}`
+ - **plan#/definitions/feature**
+    `{object}` <a name="plan--/definitions/feature"/>
+    
+    Additional properties allowed: `true`
+    
+    
+    Properties:
+    
+    
+     - **description**
+        `{string}`Constraints: `minLength`: `1`
+     - **type**
+        `{string}`Constraints: `enum`: `boolean,number`
+     - **value**
+        `{number}`
+        0/1 for boolean and any other number to compare with for number type
+    
+ - **plan#/definitions/type**
+    `{string}`Constraints: `minLength`: `1`, `enum`: `fixed,infinite,FIXED,INFINITE`
+
+
+**[⬆ Back to Top](#top)**
 ## <a name='[common]-Sale-object'></a> [common] Sale object
 Исходный файл [sale.json](sale.json).
 ```
@@ -2481,111 +2939,6 @@ Properties:
     `{number}`
  - **name**
     `{string}`Constraints: `minLength`: `1`
-
-
-**[⬆ Back to Top](#top)**
-## <a name='[common]:-Payment-plan-object'></a> [common]: Payment plan object
-Исходный файл [plan.json](plan.json).
-```
-SCHEMA plan
-```
-
-
-
-### Schema
-
-`{object}` 
-Constraints: `required`: `name,description,type,payment_definitions`
-
-Additional properties allowed: `true`
-
-
-Properties:
-
-
- - **id**
-    `{string}`Constraints: `minLength`: `1`
- - **name**
-    `{string}`Constraints: `minLength`: `1`
- - **description**
-    `{string}`Constraints: `minLength`: `1`
- - **type**
-    <a href="#plan--/definitions/type">(#/definitions/type)</a>
- - **state**
-    `{string}`Constraints: `minLength`: `1`
- - **create_time**
-    `{string}`Constraints: `minLength`: `1`
- - **update_time**
-    `{string}`Constraints: `minLength`: `1`
- - **payment_definitions**
-    `{array}` <a name="plan--/properties/payment_definitions"/>
-    
-    Each item should be:
-    
-    
-     - <a href="#common--/definitions/payment_definition">(common#/definitions/payment_definition)</a>
-    
- - **terms**
-    `{array}` <a name="plan--/properties/terms"/>
-    
-    Each item should be:
-    
-    
-     - <a href="#common--/definitions/term">(common#/definitions/term)</a>
-    
- - **merchant_preferences**
-    <a href="#common--/definitions/merchant_preferences">(common#/definitions/merchant_preferences)</a>
- - **links**
-    `{array}` <a name="plan--/properties/links"/>
-    
-    Each item should be:
-    
-    
-     - <a href="#common--/definitions/links">(common#/definitions/links)</a>
-    
-
-
-**Definitions**:
-
-
- - **plan#/definitions/meta**
-    `{object}` <a name="plan--/definitions/meta"/>
-    
-    Variable metadata object
-    
-    
-    Additional properties allowed: `true`
-    
-    
-    Additional properties should be:
-    
-    
-    
-     - <a href="#plan--/definitions/feature">(#/definitions/feature)</a>
-    
-    
-    
- - **plan#/definitions/level**
-    `{integer}`
- - **plan#/definitions/feature**
-    `{object}` <a name="plan--/definitions/feature"/>
-    
-    Additional properties allowed: `true`
-    
-    
-    Properties:
-    
-    
-     - **description**
-        `{string}`Constraints: `minLength`: `1`
-     - **type**
-        `{string}`Constraints: `enum`: `boolean,number`
-     - **value**
-        `{number}`
-        0/1 for boolean and any other number to compare with for number type
-    
- - **plan#/definitions/type**
-    `{string}`Constraints: `minLength`: `1`, `enum`: `fixed,infinite,FIXED,INFINITE`
 
 
 **[⬆ Back to Top](#top)**
@@ -3010,359 +3363,6 @@ Properties:
     <a href="#response.common.transaction-info--">(response.common.transaction-info#)</a>
  - **time_stamp**
     `{number}`
-
-
-**[⬆ Back to Top](#top)**
-# <a name='Transaction'></a> Transaction
-## <a name='Aggregate-transaction'></a> Aggregate transaction
-<p>Performs aggregate operation on filtered transactions</p>
-
-Исходный файл [src/actions/transaction/aggregate.js](src/actions/transaction/aggregate.js).
-```
-AMQP &lt;prefix&gt;.transaction.aggregate
-```
-
-
-### Request schema
-
-`{object}` 
-Constraints: `required`: `owners,aggregate`
-
-Additional properties allowed: `true`
-
-
-Properties:
-
-
- - **owners**
-    `{array}` <a name="transaction.aggregate--/properties/owners"/>
-    Constraints: `minItems`: `1`
-    
-    Each item should be:
-    
-    
-     - <a href="#common--/definitions/owner">(common#/definitions/owner)</a>
-    
- - **filter**
-    <a href="#common--/definitions/filter">(common#/definitions/filter)</a>
- - **aggregate**
-    `{object}` <a name="transaction.aggregate--/properties/aggregate"/>
-    Constraints: `minProperties`: `1`
-    
-    Additional properties allowed: `true`
-    
-    
-    Additional properties should be:
-    
-    
-    
-     - `{string}`Constraints: `enum`: `sum`
-    
-    
-    
-
-
-### Response schema:
-
-`{array}` 
-
-Each item should be:
-
-
- - `{object}` 
- - 
-    Additional properties allowed: `true`
-    
- - 
-    Properties:
-    
-     - **amount**
-        `{number}`
-    
-
-
-
-
-
-**[⬆ Back to Top](#top)**
-## <a name='Common-transaction-data'></a> Common transaction data
-<p>Retrieves common transaction information for filtered transactions</p>
-
-Исходный файл [src/actions/transaction/common.js](src/actions/transaction/common.js).
-```
-AMQP &lt;prefix&gt;.transaction.common
-```
-
-
-### Request schema
-
-`{object}` 
-
-Additional properties allowed: `true`
-
-
-Properties:
-
-
- - **offset**
-    `{integer}`Constraints: `minimum`: `0`
- - **limit**
-    `{integer}`Constraints: `minimum`: `1`, `maximum`: `100`
- - **order**
-    `{string}`Constraints: `enum`: `ASC,DESC`
- - **criteria**
-    `{string}`
- - **owner**
-    <a href="#common--/definitions/owner">(common#/definitions/owner)</a>
- - **type**
-    `{string}`Constraints: `enum`: `sale,subscription`
- - **filter**
-    <a href="#common--/definitions/filter">(common#/definitions/filter)</a>
-
-
-### Response schema:
-
-`{object}` 
-Constraints: `required`: `items,cursor,page,pages`
-
-Additional properties allowed: `true`
-
-
-Properties:
-
-
- - **items**
-    `{array}` <a name="response.transaction.common--/properties/items"/>
-    
-    Each item should be:
-    
-    
-     - <a href="#response.common.transaction-common--">(response.common.transaction-common#)</a>
-    
- - **cursor**
-    `{number}`
- - **page**
-    `{number}`
- - **pages**
-    `{number}`
-
-
-
-
-
-**[⬆ Back to Top](#top)**
-## <a name='Get-transaction'></a> Get transaction
-<p>Returns selected trasactions common data</p>
-
-Исходный файл [src/actions/transaction/get.js](src/actions/transaction/get.js).
-```
-AMQP &lt;prefix&gt;.transaction.get
-```
-
-
-### Request schema
-
-`{object}` 
-Constraints: `required`: `owners,aggregate`
-
-Additional properties allowed: `true`
-
-
-Properties:
-
-
- - **owners**
-    `{array}` <a name="transaction.aggregate--/properties/owners"/>
-    Constraints: `minItems`: `1`
-    
-    Each item should be:
-    
-    
-     - <a href="#common--/definitions/owner">(common#/definitions/owner)</a>
-    
- - **filter**
-    <a href="#common--/definitions/filter">(common#/definitions/filter)</a>
- - **aggregate**
-    `{object}` <a name="transaction.aggregate--/properties/aggregate"/>
-    Constraints: `minProperties`: `1`
-    
-    Additional properties allowed: `true`
-    
-    
-    Additional properties should be:
-    
-    
-    
-     - `{string}`Constraints: `enum`: `sum`
-    
-    
-    
-
-
-### Response schema:
-
-`{array}` 
-
-Each item should be:
-
-
- - `{object}` 
- - 
-    Additional properties allowed: `true`
-    
- - 
-    Properties:
-    
-     - **amount**
-        `{number}`
-    
-
-
-
-
-
-**[⬆ Back to Top](#top)**
-## <a name='List-transactions'></a> List transactions
-<p>Return the list of the agreement transactions data</p>
-
-Исходный файл [src/actions/transaction/list.js](src/actions/transaction/list.js).
-```
-AMQP &lt;prefix&gt;.transaction.list
-```
-
-
-### Request schema
-
-`{object}` 
-
-Additional properties allowed: `true`
-
-
-Properties:
-
-
- - **offset**
-    `{integer}`Constraints: `minimum`: `0`
- - **limit**
-    `{integer}`Constraints: `minimum`: `1`, `maximum`: `100`
- - **filter**
-    <a href="#common--/definitions/filter">(common#/definitions/filter)</a>
- - **criteria**
-    `{string}`Constraints: `minLength`: `1`
- - **order**
-    `{string}`Constraints: `enum`: `ASC,DESC`
- - **owner**
-    <a href="#common--/definitions/owner">(common#/definitions/owner)</a>
-
-
-### Response schema:
-
-`{object}` 
-Constraints: `required`: `items,cursor,page,pages`
-
-Additional properties allowed: `true`
-
-
-Properties:
-
-
- - **items**
-    `{array}` <a name="response.transaction.list--/properties/items"/>
-    
-    Each item should be:
-    
-    
-     - <a href="#response.common.transaction--">(response.common.transaction#)</a>
-    
- - **cursor**
-    `{number}`
- - **page**
-    `{number}`
- - **pages**
-    `{number}`
-
-
-
-
-
-**[⬆ Back to Top](#top)**
-## <a name='Sync-transactions'></a> Sync transactions
-<p>Syncs transactions for agreement</p>
-
-Исходный файл [src/actions/transaction/sync.js](src/actions/transaction/sync.js).
-```
-AMQP &lt;prefix&gt;.transaction.sync
-```
-
-
-### Request schema
-
-`{object}` 
-Constraints: `required`: `id`
-
-Additional properties allowed: `true`
-
-
-Properties:
-
-
- - **owner**
-    <a href="#common--/definitions/owner">(common#/definitions/owner)</a>
- - **id**
-    `{string}`Constraints: `minLength`: `1`
- - **start**
-    `{string}`Constraints: `format`: `date`
- - **end**
-    `{string}`Constraints: `format`: `date`
-
-
-### Response schema:
-
-`{object}` 
-
-Additional properties allowed: `true`
-
-
-Properties:
-
-
- - **agreement**
-    <a href="#response.common.agreement--">(response.common.agreement#)</a>
- - **transactions**
-    `{array}` <a name="response.transaction.sync--/properties/transactions"/>
-    
-    Each item should be:
-    
-    
-     - <a href="#response.common.transaction-info--">(response.common.transaction-info#)</a>
-    
-
-
-
-
-
-**[⬆ Back to Top](#top)**
-## <a name='Sync-Updated-transactions'></a> Sync Updated transactions
-<p>Syncs updated transactions for agreement</p>
-
-Исходный файл [src/actions/transaction/sync-updated.js](src/actions/transaction/sync-updated.js).
-```
-AMQP &lt;prefix&gt;.transaction.sync-updated
-```
-
-
-### Request schema
-
-`{object}` 
-
-Additional properties allowed: `true`
-
-
-### Response schema:
-
-`{number}`
-
-
 
 
 **[⬆ Back to Top](#top)**
