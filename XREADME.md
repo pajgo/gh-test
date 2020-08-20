@@ -614,11 +614,11 @@ SCHEMA common
      - **type**: 
         `{string}`Constraints: `minLength`: `1`
      - **max_billing_amount**: 
-        <a href="#--/definitions/currency">(common#/definitions/currency)</a>
+        <a href="#common--/definitions/currency">(common#/definitions/currency)</a>
      - **occurences**: 
         `{string}`Constraints: `minLength`: `1`
      - **amount_range**: 
-        <a href="#--/definitions/currency">(common#/definitions/currency)</a>
+        <a href="#common--/definitions/currency">(common#/definitions/currency)</a>
      - **buyer_editable**: 
         `{string}`Constraints: `minLength`: `1`
     
@@ -645,7 +645,7 @@ SCHEMA common
      - **cycles**: 
         `{string}`Constraints: `minLength`: `1`
      - **amount**: 
-        <a href="#--/definitions/currency">(common#/definitions/currency)</a>
+        <a href="#common--/definitions/currency">(common#/definitions/currency)</a>
      - **charge_models**: 
         `{array}` <a name="common--/definitions/payment_definition/properties/charge_models"/>
         
@@ -665,7 +665,7 @@ SCHEMA common
          - **type**: 
             `{string}`Constraints: `minLength`: `1`
          - **amount**: 
-            <a href="#--/definitions/currency">(common#/definitions/currency)</a>
+            <a href="#common--/definitions/currency">(common#/definitions/currency)</a>
         
     
  - **common#/definitions/merchant_preferences**
@@ -681,7 +681,7 @@ SCHEMA common
      - **id**: 
         `{string}`Constraints: `minLength`: `1`
      - **setup_fee**: 
-        <a href="#--/definitions/currency">(common#/definitions/currency)</a>
+        <a href="#common--/definitions/currency">(common#/definitions/currency)</a>
      - **cancel_url**: 
         `{string}`Constraints: `minLength`: `1`
      - **return_url**: 
@@ -709,7 +709,7 @@ SCHEMA common
     
     
      - **outstanding_balance**: 
-        <a href="#--/definitions/currency">(common#/definitions/currency)</a>
+        <a href="#common--/definitions/currency">(common#/definitions/currency)</a>
      - **cycles_remaining**: 
         `{string}`Constraints: `minLength`: `1`
      - **cycles_completed**: 
@@ -719,7 +719,7 @@ SCHEMA common
      - **last_payment_date**: 
         `{string}`Constraints: `minLength`: `1`
      - **last_payment_amount**: 
-        <a href="#--/definitions/currency">(common#/definitions/currency)</a>
+        <a href="#common--/definitions/currency">(common#/definitions/currency)</a>
      - **final_payment_date**: 
         `{string}`Constraints: `minLength`: `1`
      - **failed_payment_count**: 
@@ -748,11 +748,11 @@ SCHEMA common
         
         Each item should be:
         
-        <a href="#--/definitions/funding_instrument">(common#/definitions/funding_instrument)</a>
+        <a href="#common--/definitions/funding_instrument">(common#/definitions/funding_instrument)</a>
      - **funding_option_id**: 
         `{string}`
      - **payer_info**: 
-        <a href="#--/definitions/payer_info">(common#/definitions/payer_info)</a>
+        <a href="#common--/definitions/payer_info">(common#/definitions/payer_info)</a>
     
  - **common#/definitions/funding_instrument**
     `{object}` <a name="common--/definitions/funding_instrument"/>
@@ -764,9 +764,9 @@ SCHEMA common
     
     
      - **credit_card**: 
-        <a href="#--/definitions/credit_card">(common#/definitions/credit_card)</a>
+        <a href="#common--/definitions/credit_card">(common#/definitions/credit_card)</a>
      - **credit_card_token**: 
-        <a href="#--/definitions/credit_card_token">(common#/definitions/credit_card_token)</a>
+        <a href="#common--/definitions/credit_card_token">(common#/definitions/credit_card_token)</a>
     
  - **common#/definitions/credit_card**
     `{object}` <a name="common--/definitions/credit_card"/>
@@ -797,7 +797,7 @@ SCHEMA common
      - **last_name**: 
         `{string}`Constraints: `minLength`: `1`
      - **billing_address**: 
-        <a href="#--/definitions/address">(common#/definitions/address)</a>
+        <a href="#common--/definitions/address">(common#/definitions/address)</a>
      - **external_customer_id**: 
         `{string}`Constraints: `minLength`: `1`
      - **merchant_id**: 
@@ -864,7 +864,7 @@ SCHEMA common
      - **country_code**: 
         `{string}`Constraints: `minLength`: `1`
      - **shipping_address**: 
-        <a href="#--/definitions/shipping_address">(common#/definitions/shipping_address)</a>
+        <a href="#common--/definitions/shipping_address">(common#/definitions/shipping_address)</a>
      - **tax_id_type**: 
         `{string}`Constraints: `minLength`: `1`
      - **tax_id**: 
@@ -900,7 +900,7 @@ SCHEMA common
     *Could be allOf:*
     
     
-     - <a href="#--/definitions/address">(common#/definitions/address)</a>
+     - <a href="#common--/definitions/address">(common#/definitions/address)</a>
      - Constraints: `properties`: `[object Object]`
     
  - **common#/definitions/override_charge_model**
@@ -916,7 +916,7 @@ SCHEMA common
      - **charge_id**: 
         `{string}`Constraints: `minLength`: `1`
      - **amount**: 
-        <a href="#--/definitions/currency">(common#/definitions/currency)</a>
+        <a href="#common--/definitions/currency">(common#/definitions/currency)</a>
     
  - **common#/definitions/item**
     `{object}` <a name="common--/definitions/item"/>
@@ -951,13 +951,13 @@ SCHEMA common
         
         Each item should be:
         
-        <a href="#--/definitions/kv">(common#/definitions/kv)</a>
+        <a href="#common--/definitions/kv">(common#/definitions/kv)</a>
      - **postback_data**: 
         `{array}` <a name="common--/definitions/item/properties/postback_data"/>
         
         Each item should be:
         
-        <a href="#--/definitions/kv">(common#/definitions/kv)</a>
+        <a href="#common--/definitions/kv">(common#/definitions/kv)</a>
     
  - **common#/definitions/kv**
     `{object}` <a name="common--/definitions/kv"/>
@@ -1164,7 +1164,7 @@ Properties:
  - **description**: 
     `{string}`Constraints: `minLength`: `1`
  - **type**: 
-    <a href="#--/definitions/type">(#/definitions/type)</a>
+    <a href="#plan--/definitions/type">(#/definitions/type)</a>
  - **state**: 
     `{string}`Constraints: `minLength`: `1`
  - **create_time**: 
@@ -1205,7 +1205,7 @@ Properties:
     Additional properties:
     
     Constraints: `0`: `#`, `1`: `/`, `2`: `d`, `3`: `e`, `4`: `f`, `5`: `i`, `6`: `n`, `7`: `i`, `8`: `t`, `9`: `i`, `10`: `o`, `11`: `n`, `12`: `s`, `13`: `/`, `14`: `f`, `15`: `e`, `16`: `a`, `17`: `t`, `18`: `u`, `19`: `r`, `20`: `e`
-    Constraints: `local`: `true`, `hash`: `#/definitions/feature`, `originalRef`: `#/definitions/feature`
+    Constraints: `local`: `true`, `hash`: `#/definitions/feature`, `originalRef`: `#/definitions/feature`, `id`: `plan`
  - **plan#/definitions/level**
     `{integer}`
  - **plan#/definitions/feature**
