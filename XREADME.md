@@ -16,6 +16,7 @@
 	- [Retrieves Plan by its Id.](#Retrieves-Plan-by-its-Id.)
 	
 - [SchemaDefinitions](#SchemaDefinitions)
+	- [[response.common] Agreement object](#[response.common]-Agreement-object)
 	- [agreement.get response](#agreement.get-response)
 	- [Common definitions](#Common-definitions)
 	- [Common type: Agreement object](#Common-type:-Agreement-object)
@@ -23,7 +24,6 @@
 	- [Common type: Payment plan response object](#Common-type:-Payment-plan-response-object)
 	- [Common type: Subscription response object](#Common-type:-Subscription-response-object)
 	- [data-types](#data-types)
-	- [Response: Agreement object](#Response:-Agreement-object)
 	
 
 # <a name='Agreement'></a> Agreement
@@ -34,11 +34,6 @@
 ```
 AMQP,INTERNAL agreement.bill
 ```
-
-### Response schema:
-
-`{string}`
-String as status of the operation
 
 
 ### Request schema
@@ -59,6 +54,13 @@ Properties:
     `{string}`
 
 
+### Response schema:
+
+`{string}`
+String as status of the operation
+
+
+
 
 **[⬆ Back to Top](#top)**
 ## <a name='Changes-agreement-state'></a> Changes agreement state
@@ -68,10 +70,6 @@ Properties:
 ```
 AMQP &lt;prefix&gt;.agreement.state
 ```
-
-### Response schema:
-
-`{string}`Constraints: `enum`: `suspend,reactivate,cancel`
 
 
 ### Request schema
@@ -86,11 +84,17 @@ Properties:
 
 
  - **owner**: 
-    <a href="common#/definitions/owner">(common#/definitions/owner)</a>
+    <a href="#common--/definitions/owner">(common#/definitions/owner)</a>
  - **state**: 
     `{string}`Constraints: `enum`: `suspend,reactivate,cancel`
  - **note**: 
     `{string}`Constraints: `minLength`: `1`
+
+
+### Response schema:
+
+`{string}`Constraints: `enum`: `suspend,reactivate,cancel`
+
 
 
 
@@ -102,27 +106,6 @@ Properties:
 ```
 AMQP &lt;prefix&gt;.agreement.create
 ```
-
-### Response schema:
-
-`{object}` 
-
-Created agreement
-
-
-Additional properties allowed: `true`
-
-
-Properties:
-
-
- - **token**: 
-    `{string}`Constraints: `minLength`: `1`
- - **url**: 
-    `{string}`Constraints: `minLength`: `1`
- - **agreement**: 
-    <a href="response.common.agreement#">(response.common.agreement#)</a>
-
 
 
 ### Request schema
@@ -137,14 +120,14 @@ Properties:
 
 
  - **owner**: 
-    <a href="common#/definitions/owner">(common#/definitions/owner)</a>
+    <a href="#common--/definitions/owner">(common#/definitions/owner)</a>
  - **agreement**: 
     
     *Could be allOf:*
     
     
-     - <a href="agreement#">(agreement#)</a>
-     - `{object}` <a name="#/properties/agreement/allOf/1"/>
+     - <a href="#agreement--">(agreement#)</a>
+     - `{object}` <a name="--/properties/agreement/allOf/1"/>
         
         Additional properties allowed: `true`
         
@@ -153,7 +136,7 @@ Properties:
         
         
          - **plan**: 
-            `{object}` <a name="#/properties/agreement/allOf/1/properties/plan"/>
+            `{object}` <a name="--/properties/agreement/allOf/1/properties/plan"/>
             Constraints: `required`: `id`
             
             Additional properties allowed: `true`
@@ -173,6 +156,29 @@ Properties:
     `{integer}`Constraints: `minimum`: `1`, `default`: `12`
 
 
+### Response schema:
+
+`{object}` 
+
+Created agreement
+
+
+Additional properties allowed: `true`
+
+
+Properties:
+
+
+ - **token**: 
+    `{string}`Constraints: `minLength`: `1`
+ - **url**: 
+    `{string}`Constraints: `minLength`: `1`
+ - **agreement**: 
+    <a href="#response.common.agreement--">(response.common.agreement#)</a>
+
+
+
+
 
 **[⬆ Back to Top](#top)**
 ## <a name='Executes-agreement-for-approval'></a> Executes agreement for approval
@@ -182,10 +188,6 @@ Properties:
 ```
 AMQP &lt;prefix&gt;.agreement.execute
 ```
-
-### Response schema:
-
-<a href="response.common.agreement#">agreement.execute response`response.agreement.execute` (response.common.agreement#)</a>
 
 
 ### Request schema
@@ -203,6 +205,12 @@ Properties:
     `{string}`Constraints: `minLength`: `1`
 
 
+### Response schema:
+
+<a href="#response.common.agreement--">agreement.execute response`response.agreement.execute` (response.common.agreement#)</a>
+
+
+
 
 **[⬆ Back to Top](#top)**
 ## <a name='Get-Agreement-information'></a> Get Agreement information
@@ -212,31 +220,6 @@ Properties:
 ```
 AMQP &lt;prefix&gt;.agreement.get
 ```
-
-### Response schema:
-
-`{object}` 
-
-Additional properties allowed: `true`
-
-
-Properties:
-
-
- - **id**: 
-    `{string}`Constraints: `minLength`: `4`
- - **owner**: 
-    <a href="common#/definitions/owner">(common#/definitions/owner)</a>
- - **state**: 
-    `{string}`
-    #TODO
- - **token**: 
-    `{string}`Constraints: `minLength`: `10`
- - **plan**: 
-    <a href="common#/definitions/planId">(common#/definitions/planId)</a>
- - **agreement**: 
-    <a href="response.common.agreement#">(response.common.agreement#)</a>
-
 
 
 ### Request schema
@@ -253,7 +236,34 @@ Properties:
  - **id**: 
     `{string}`Constraints: `minLength`: `1`
  - **owner**: 
-    <a href="common#/definitions/owner">(common#/definitions/owner)</a>
+    <a href="#common--/definitions/owner">(common#/definitions/owner)</a>
+
+
+### Response schema:
+
+`{object}` 
+
+Additional properties allowed: `true`
+
+
+Properties:
+
+
+ - **id**: 
+    `{string}`Constraints: `minLength`: `4`
+ - **owner**: 
+    <a href="#common--/definitions/owner">(common#/definitions/owner)</a>
+ - **state**: 
+    `{string}`
+    #TODO
+ - **token**: 
+    `{string}`Constraints: `minLength`: `10`
+ - **plan**: 
+    <a href="#common--/definitions/planId">(common#/definitions/planId)</a>
+ - **agreement**: 
+    <a href="#response.common.agreement--">(response.common.agreement#)</a>
+
+
 
 
 
@@ -265,31 +275,6 @@ Properties:
 ```
 AMQP &lt;prefix&gt;.agreement.list
 ```
-
-### Response schema:
-
-`{object}` 
-Constraints: `required`: `items,cursor,page,pages`
-
-Additional properties allowed: `true`
-
-
-Properties:
-
-
- - **items**: 
-    `{array}` <a name="#/properties/items"/>
-    
-    Each item should be:
-    
-    <a href="response.agreement.get#">(response.agreement.get#)</a>
- - **cursor**: 
-    `{number}`
- - **page**: 
-    `{number}`
- - **pages**: 
-    `{number}`
-
 
 
 ### Request schema
@@ -307,13 +292,40 @@ Properties:
  - **limit**: 
     `{integer}`Constraints: `minimum`: `1`, `maximum`: `100`
  - **filter**: 
-    <a href="common#/definitions/filter">(common#/definitions/filter)</a>
+    <a href="#common--/definitions/filter">(common#/definitions/filter)</a>
  - **criteria**: 
     `{string}`Constraints: `minLength`: `1`
  - **order**: 
     `{string}`Constraints: `enum`: `ASC,DESC`
  - **owner**: 
-    <a href="common#/definitions/owner">(common#/definitions/owner)</a>
+    <a href="#common--/definitions/owner">(common#/definitions/owner)</a>
+
+
+### Response schema:
+
+`{object}` 
+Constraints: `required`: `items,cursor,page,pages`
+
+Additional properties allowed: `true`
+
+
+Properties:
+
+
+ - **items**: 
+    `{array}` <a name="--/properties/items"/>
+    
+    Each item should be:
+    
+    <a href="#response.agreement.get--">(response.agreement.get#)</a>
+ - **cursor**: 
+    `{number}`
+ - **page**: 
+    `{number}`
+ - **pages**: 
+    `{number}`
+
+
 
 
 
@@ -325,10 +337,6 @@ Properties:
 ```
 AMQP &lt;prefix&gt;.agreement.forUser
 ```
-
-### Response schema:
-
-<a href="response.agreement.get#">agreement.forUser response`response.agreement.forUser` (response.agreement.get#)</a>
 
 
 ### Request schema
@@ -346,6 +354,12 @@ Properties:
     `{string}`Constraints: `minLength`: `1`
 
 
+### Response schema:
+
+<a href="#response.agreement.get--">agreement.forUser response`response.agreement.forUser` (response.agreement.get#)</a>
+
+
+
 
 **[⬆ Back to Top](#top)**
 # <a name='Plan'></a> Plan
@@ -356,49 +370,6 @@ Properties:
 ```
 AMQP &lt;prefix&gt;.plan.get
 ```
-
-### Response schema:
-
-`{object}` 
-
-Additional properties allowed: `true`
-
-
-Properties:
-
-
- - **id**: 
-    <a href="common#/definitions/planId">(common#/definitions/planId)</a>
- - **state**: 
-    `{string}`
-    #TODO
- - **alias**: 
-    `{string}`Constraints: `minLength`: `1`
- - **name**: 
-    `{string}`Constraints: `minLength`: `1`
- - **description**: 
-    `{string}`
- - **hidden**: 
-    `{boolean}`
- - **level**: 
-    <a href="plan#/definitions/level">(plan#/definitions/level)</a>
- - **subs**: 
-    `{array}` <a name="#/properties/subs"/>
-    
-    Each item should be:
-    
-    <a href="response.common.subscription#">(response.common.subscription#)</a>
- - **plan**: 
-    <a href="response.common.plan#">(response.common.plan#)</a>
- - **meta**: 
-    <a href="plan#/definitions/meta">(plan#/definitions/meta)</a>
- - **type**: 
-    <a href="plan#/definitions/type">(plan#/definitions/type)</a>
- - **month**: 
-    <a href="data-types#/definitions/nullable-string">(data-types#/definitions/nullable-string)</a>
- - **year**: 
-    <a href="data-types#/definitions/nullable-string">(data-types#/definitions/nullable-string)</a>
-
 
 
 ### Request schema
@@ -427,9 +398,121 @@ Properties:
     
 
 
+### Response schema:
+
+`{object}` 
+
+Additional properties allowed: `true`
+
+
+Properties:
+
+
+ - **id**: 
+    <a href="#common--/definitions/planId">(common#/definitions/planId)</a>
+ - **state**: 
+    `{string}`
+    #TODO
+ - **alias**: 
+    `{string}`Constraints: `minLength`: `1`
+ - **name**: 
+    `{string}`Constraints: `minLength`: `1`
+ - **description**: 
+    `{string}`
+ - **hidden**: 
+    `{boolean}`
+ - **level**: 
+    <a href="#plan--/definitions/level">(plan#/definitions/level)</a>
+ - **subs**: 
+    `{array}` <a name="--/properties/subs"/>
+    
+    Each item should be:
+    
+    <a href="#response.common.subscription--">(response.common.subscription#)</a>
+ - **plan**: 
+    <a href="#response.common.plan--">(response.common.plan#)</a>
+ - **meta**: 
+    <a href="#plan--/definitions/meta">(plan#/definitions/meta)</a>
+ - **type**: 
+    <a href="#plan--/definitions/type">(plan#/definitions/type)</a>
+ - **month**: 
+    <a href="#data-types--/definitions/nullable-string">(data-types#/definitions/nullable-string)</a>
+ - **year**: 
+    <a href="#data-types--/definitions/nullable-string">(data-types#/definitions/nullable-string)</a>
+
+
+
+
 
 **[⬆ Back to Top](#top)**
 # <a name='SchemaDefinitions'></a> SchemaDefinitions
+## <a name='[response.common]-Agreement-object'></a> [response.common] Agreement object
+Agreement response object structure
+
+Исходный файл [response/agreement.json](response/agreement.json).
+```
+SCHEMA response.common.agreement
+```
+
+
+
+### Schema
+
+`{object}` 
+
+Agreement response object structure
+
+
+Additional properties allowed: `true`
+
+
+Properties:
+
+
+ - **t**: 
+    `{integer}`
+    #TODO FINDOUT Something internal
+ - **httpStatusCode**: 
+    `{integer}`
+ - **id**: 
+    `{string}`Constraints: `minLength`: `1`
+ - **state**: 
+    `{string}`Constraints: `minLength`: `1`
+ - **name**: 
+    `{string}`Constraints: `minLength`: `1`
+ - **description**: 
+    `{string}`Constraints: `minLength`: `1`
+ - **start_date**: 
+    `{string}`Constraints: `minLength`: `1`
+ - **agreement_details**: 
+    <a href="#common--/definitions/agreement_details">(common#/definitions/agreement_details)</a>
+ - **payer**: 
+    <a href="#common--/definitions/payer">(common#/definitions/payer)</a>
+ - **shipping_address**: 
+    <a href="#common--/definitions/address">(common#/definitions/address)</a>
+ - **override_merchant_preferences**: 
+    <a href="#common--/definitions/merchant_preferences">(common#/definitions/merchant_preferences)</a>
+ - **override_charge_models**: 
+    `{array}` <a name="--/properties/override_charge_models"/>
+    
+    Each item should be:
+    
+    <a href="#common--/definitions/override_charge_model">(common#/definitions/override_charge_model)</a>
+ - **plan**: 
+    <a href="#response.common.plan--">(response.common.plan#)</a>
+ - **create_time**: 
+    `{string}`Constraints: `minLength`: `1`
+ - **update_time**: 
+    `{string}`Constraints: `minLength`: `1`
+ - **links**: 
+    `{array}` <a name="--/properties/links"/>
+    
+    Each item should be:
+    
+    <a href="#common--/definitions/links">(common#/definitions/links)</a>
+
+
+**[⬆ Back to Top](#top)**
 ## <a name='agreement.get-response'></a> agreement.get response
 Исходный файл [response/agreement/get.json](response/agreement/get.json).
 ```
@@ -451,16 +534,16 @@ Properties:
  - **id**: 
     `{string}`Constraints: `minLength`: `4`
  - **owner**: 
-    <a href="common#/definitions/owner">(common#/definitions/owner)</a>
+    <a href="#common--/definitions/owner">(common#/definitions/owner)</a>
  - **state**: 
     `{string}`
     #TODO
  - **token**: 
     `{string}`Constraints: `minLength`: `10`
  - **plan**: 
-    <a href="common#/definitions/planId">(common#/definitions/planId)</a>
+    <a href="#common--/definitions/planId">(common#/definitions/planId)</a>
  - **agreement**: 
-    <a href="response.common.agreement#">(response.common.agreement#)</a>
+    <a href="#response.common.agreement--">(response.common.agreement#)</a>
 
 
 **[⬆ Back to Top](#top)**
@@ -486,7 +569,7 @@ SCHEMA common
     `{string}`Constraints: `format`: `uuid`
     Identification of charge
  - **common#/definitions/currency**
-    `{object}` <a name="common#/definitions/currency"/>
+    `{object}` <a name="common--/definitions/currency"/>
     Constraints: `required`: `currency,value`
     
     Additional properties allowed: `true`
@@ -501,7 +584,7 @@ SCHEMA common
         `{string}`Constraints: `pattern`: `\d{1,7}(\.\d{1,2})?$`
     
  - **common#/definitions/links**
-    `{object}` <a name="common#/definitions/links"/>
+    `{object}` <a name="common--/definitions/links"/>
     
     Additional properties allowed: `true`
     
@@ -517,7 +600,7 @@ SCHEMA common
         `{string}`Constraints: `minLength`: `1`
     
  - **common#/definitions/term**
-    `{object}` <a name="common#/definitions/term"/>
+    `{object}` <a name="common--/definitions/term"/>
     Constraints: `required`: `type,max_billing_amount,occurences,amount_range,buyer_editable`
     
     Additional properties allowed: `true`
@@ -531,16 +614,16 @@ SCHEMA common
      - **type**: 
         `{string}`Constraints: `minLength`: `1`
      - **max_billing_amount**: 
-        <a href="undefined#/definitions/currency">(common#/definitions/currency)</a>
+        <a href="#undefined--/definitions/currency">(common#/definitions/currency)</a>
      - **occurences**: 
         `{string}`Constraints: `minLength`: `1`
      - **amount_range**: 
-        <a href="undefined#/definitions/currency">(common#/definitions/currency)</a>
+        <a href="#undefined--/definitions/currency">(common#/definitions/currency)</a>
      - **buyer_editable**: 
         `{string}`Constraints: `minLength`: `1`
     
  - **common#/definitions/payment_definition**
-    `{object}` <a name="common#/definitions/payment_definition"/>
+    `{object}` <a name="common--/definitions/payment_definition"/>
     Constraints: `required`: `name,type,frequency_interval,frequency,cycles,amount`
     
     Additional properties allowed: `true`
@@ -562,13 +645,13 @@ SCHEMA common
      - **cycles**: 
         `{string}`Constraints: `minLength`: `1`
      - **amount**: 
-        <a href="undefined#/definitions/currency">(common#/definitions/currency)</a>
+        <a href="#undefined--/definitions/currency">(common#/definitions/currency)</a>
      - **charge_models**: 
-        `{array}` <a name="common#/definitions/payment_definition/properties/charge_models"/>
+        `{array}` <a name="common--/definitions/payment_definition/properties/charge_models"/>
         
         Each item should be:
         
-        `{object}` <a name="common#/definitions/payment_definition/properties/charge_models/items"/>
+        `{object}` <a name="common--/definitions/payment_definition/properties/charge_models/items"/>
         Constraints: `required`: `type,amount`
         
         Additional properties allowed: `true`
@@ -582,11 +665,11 @@ SCHEMA common
          - **type**: 
             `{string}`Constraints: `minLength`: `1`
          - **amount**: 
-            <a href="undefined#/definitions/currency">(common#/definitions/currency)</a>
+            <a href="#undefined--/definitions/currency">(common#/definitions/currency)</a>
         
     
  - **common#/definitions/merchant_preferences**
-    `{object}` <a name="common#/definitions/merchant_preferences"/>
+    `{object}` <a name="common--/definitions/merchant_preferences"/>
     Constraints: `required`: `cancel_url,return_url`
     
     Additional properties allowed: `true`
@@ -598,7 +681,7 @@ SCHEMA common
      - **id**: 
         `{string}`Constraints: `minLength`: `1`
      - **setup_fee**: 
-        <a href="undefined#/definitions/currency">(common#/definitions/currency)</a>
+        <a href="#undefined--/definitions/currency">(common#/definitions/currency)</a>
      - **cancel_url**: 
         `{string}`Constraints: `minLength`: `1`
      - **return_url**: 
@@ -617,7 +700,7 @@ SCHEMA common
         `{string}`Constraints: `minLength`: `1`
     
  - **common#/definitions/agreement_details**
-    `{object}` <a name="common#/definitions/agreement_details"/>
+    `{object}` <a name="common--/definitions/agreement_details"/>
     
     Additional properties allowed: `true`
     
@@ -626,7 +709,7 @@ SCHEMA common
     
     
      - **outstanding_balance**: 
-        <a href="undefined#/definitions/currency">(common#/definitions/currency)</a>
+        <a href="#undefined--/definitions/currency">(common#/definitions/currency)</a>
      - **cycles_remaining**: 
         `{string}`Constraints: `minLength`: `1`
      - **cycles_completed**: 
@@ -636,14 +719,14 @@ SCHEMA common
      - **last_payment_date**: 
         `{string}`Constraints: `minLength`: `1`
      - **last_payment_amount**: 
-        <a href="undefined#/definitions/currency">(common#/definitions/currency)</a>
+        <a href="#undefined--/definitions/currency">(common#/definitions/currency)</a>
      - **final_payment_date**: 
         `{string}`Constraints: `minLength`: `1`
      - **failed_payment_count**: 
         `{string}`Constraints: `minLength`: `1`
     
  - **common#/definitions/payer**
-    `{object}` <a name="common#/definitions/payer"/>
+    `{object}` <a name="common--/definitions/payer"/>
     Constraints: `required`: `payment_method`
     
     Additional properties allowed: `true`
@@ -661,18 +744,18 @@ SCHEMA common
      - **account_age**: 
         `{string}`
      - **funding_instruments**: 
-        `{array}` <a name="common#/definitions/payer/properties/funding_instruments"/>
+        `{array}` <a name="common--/definitions/payer/properties/funding_instruments"/>
         
         Each item should be:
         
-        <a href="undefined#/definitions/funding_instrument">(common#/definitions/funding_instrument)</a>
+        <a href="#undefined--/definitions/funding_instrument">(common#/definitions/funding_instrument)</a>
      - **funding_option_id**: 
         `{string}`
      - **payer_info**: 
-        <a href="undefined#/definitions/payer_info">(common#/definitions/payer_info)</a>
+        <a href="#undefined--/definitions/payer_info">(common#/definitions/payer_info)</a>
     
  - **common#/definitions/funding_instrument**
-    `{object}` <a name="common#/definitions/funding_instrument"/>
+    `{object}` <a name="common--/definitions/funding_instrument"/>
     
     Additional properties allowed: `true`
     
@@ -681,12 +764,12 @@ SCHEMA common
     
     
      - **credit_card**: 
-        <a href="undefined#/definitions/credit_card">(common#/definitions/credit_card)</a>
+        <a href="#undefined--/definitions/credit_card">(common#/definitions/credit_card)</a>
      - **credit_card_token**: 
-        <a href="undefined#/definitions/credit_card_token">(common#/definitions/credit_card_token)</a>
+        <a href="#undefined--/definitions/credit_card_token">(common#/definitions/credit_card_token)</a>
     
  - **common#/definitions/credit_card**
-    `{object}` <a name="common#/definitions/credit_card"/>
+    `{object}` <a name="common--/definitions/credit_card"/>
     Constraints: `required`: `number,type,expire_month,expire_year`
     
     Additional properties allowed: `true`
@@ -714,7 +797,7 @@ SCHEMA common
      - **last_name**: 
         `{string}`Constraints: `minLength`: `1`
      - **billing_address**: 
-        <a href="undefined#/definitions/address">(common#/definitions/address)</a>
+        <a href="#undefined--/definitions/address">(common#/definitions/address)</a>
      - **external_customer_id**: 
         `{string}`Constraints: `minLength`: `1`
      - **merchant_id**: 
@@ -731,7 +814,7 @@ SCHEMA common
         `{string}`Constraints: `minLength`: `1`
     
  - **common#/definitions/credit_card_token**
-    `{object}` <a name="common#/definitions/credit_card_token"/>
+    `{object}` <a name="common--/definitions/credit_card_token"/>
     Constraints: `required`: `credit_card_id`
     
     Additional properties allowed: `true`
@@ -754,7 +837,7 @@ SCHEMA common
         `{integer}`
     
  - **common#/definitions/payer_info**
-    `{object}` <a name="common#/definitions/payer_info"/>
+    `{object}` <a name="common--/definitions/payer_info"/>
     
     Additional properties allowed: `true`
     
@@ -781,14 +864,14 @@ SCHEMA common
      - **country_code**: 
         `{string}`Constraints: `minLength`: `1`
      - **shipping_address**: 
-        <a href="undefined#/definitions/shipping_address">(common#/definitions/shipping_address)</a>
+        <a href="#undefined--/definitions/shipping_address">(common#/definitions/shipping_address)</a>
      - **tax_id_type**: 
         `{string}`Constraints: `minLength`: `1`
      - **tax_id**: 
         `{string}`Constraints: `minLength`: `1`
     
  - **common#/definitions/address**
-    `{object}` <a name="common#/definitions/address"/>
+    `{object}` <a name="common--/definitions/address"/>
     Constraints: `required`: `line1,city,country_code`
     
     Additional properties allowed: `true`
@@ -817,11 +900,11 @@ SCHEMA common
     *Could be allOf:*
     
     
-     - <a href="undefined#/definitions/address">(common#/definitions/address)</a>
+     - <a href="#undefined--/definitions/address">(common#/definitions/address)</a>
      - Constraints: `properties`: `[object Object]`
     
  - **common#/definitions/override_charge_model**
-    `{object}` <a name="common#/definitions/override_charge_model"/>
+    `{object}` <a name="common--/definitions/override_charge_model"/>
     Constraints: `required`: `charge_id,amount`
     
     Additional properties allowed: `true`
@@ -833,10 +916,10 @@ SCHEMA common
      - **charge_id**: 
         `{string}`Constraints: `minLength`: `1`
      - **amount**: 
-        <a href="undefined#/definitions/currency">(common#/definitions/currency)</a>
+        <a href="#undefined--/definitions/currency">(common#/definitions/currency)</a>
     
  - **common#/definitions/item**
-    `{object}` <a name="common#/definitions/item"/>
+    `{object}` <a name="common--/definitions/item"/>
     Constraints: `required`: `quantity,name,price,currency`
     
     Additional properties allowed: `true`
@@ -864,20 +947,20 @@ SCHEMA common
      - **category**: 
         `{string}`Constraints: `enum`: `digital,physical`
      - **supplementary_data**: 
-        `{array}` <a name="common#/definitions/item/properties/supplementary_data"/>
+        `{array}` <a name="common--/definitions/item/properties/supplementary_data"/>
         
         Each item should be:
         
-        <a href="undefined#/definitions/kv">(common#/definitions/kv)</a>
+        <a href="#undefined--/definitions/kv">(common#/definitions/kv)</a>
      - **postback_data**: 
-        `{array}` <a name="common#/definitions/item/properties/postback_data"/>
+        `{array}` <a name="common--/definitions/item/properties/postback_data"/>
         
         Each item should be:
         
-        <a href="undefined#/definitions/kv">(common#/definitions/kv)</a>
+        <a href="#undefined--/definitions/kv">(common#/definitions/kv)</a>
     
  - **common#/definitions/kv**
-    `{object}` <a name="common#/definitions/kv"/>
+    `{object}` <a name="common--/definitions/kv"/>
     Constraints: `required`: `name,value`
     
     Additional properties allowed: `true`
@@ -903,7 +986,7 @@ SCHEMA common
     `{string}`Constraints: `minLength`: `1`, `pattern`: `^PAYID-.+(\|PAYID-.+)?`
     @TODO
  - **common#/definitions/filter**
-    `{object}` <a name="common#/definitions/filter"/>
+    `{object}` <a name="common--/definitions/filter"/>
     
     Search filter
     
@@ -915,7 +998,7 @@ SCHEMA common
     
     
      - **#multi**: 
-        `{object}` <a name="common#/definitions/filter/properties/#multi"/>
+        `{object}` <a name="common--/definitions/filter/properties/--multi"/>
         Constraints: `required`: `fields,match`
         
         #multi query
@@ -928,7 +1011,7 @@ SCHEMA common
         
         
          - **fields**: 
-            `{array}` <a name="common#/definitions/filter/properties/#multi/properties/fields"/>
+            `{array}` <a name="common--/definitions/filter/properties/--multi/properties/fields"/>
             Constraints: `minItems`: `1`
             
             fields
@@ -950,7 +1033,7 @@ SCHEMA common
     
     
      - `{string}`Constraints: `minLength`: `1`
-     - `{object}` <a name="common#/definitions/filter/additionalProperties/oneOf/oneOf/1"/>
+     - `{object}` <a name="common--/definitions/filter/additionalProperties/oneOf/oneOf/1"/>
         Constraints: `minProperties`: `1`, `maxProperties`: `2`
         
         Additional properties allowed: `true`
@@ -964,7 +1047,7 @@ SCHEMA common
          - ^(gte|lte)$: {number}
             `{number}`
          - ^(some)$: {array}
-            `{array}` <a name="common#/definitions/filter/additionalProperties/oneOf/oneOf/1/patternProperties/^(some)$"/>
+            `{array}` <a name="common--/definitions/filter/additionalProperties/oneOf/oneOf/1/patternProperties/^(some)$"/>
             Constraints: `uniqueItems`: `true`
             
             Each item should be:
@@ -1010,26 +1093,26 @@ Properties:
  - **start_date**: 
     `{string}`Constraints: `minLength`: `1`
  - **agreement_details**: 
-    <a href="common#/definitions/agreement_details">(common#/definitions/agreement_details)</a>
+    <a href="#common--/definitions/agreement_details">(common#/definitions/agreement_details)</a>
  - **payer**: 
-    <a href="common#/definitions/payer">(common#/definitions/payer)</a>
+    <a href="#common--/definitions/payer">(common#/definitions/payer)</a>
  - **shipping_address**: 
-    <a href="common#/definitions/address">(common#/definitions/address)</a>
+    <a href="#common--/definitions/address">(common#/definitions/address)</a>
  - **override_merchant_preferences**: 
-    <a href="common#/definitions/merchant_preferences">(common#/definitions/merchant_preferences)</a>
+    <a href="#common--/definitions/merchant_preferences">(common#/definitions/merchant_preferences)</a>
  - **override_charge_models**: 
-    `{array}` <a name="#/properties/override_charge_models"/>
+    `{array}` <a name="--/properties/override_charge_models"/>
     
     Each item should be:
     
-    <a href="common#/definitions/override_charge_model">(common#/definitions/override_charge_model)</a>
+    <a href="#common--/definitions/override_charge_model">(common#/definitions/override_charge_model)</a>
  - **plan**: 
     
     *Could be oneOf:*
     
     
-     - <a href="plan.create#">(plan.create#)</a>
-     - `{object}` <a name="#/properties/plan/oneOf/1"/>
+     - <a href="#plan.create--">(plan.create#)</a>
+     - `{object}` <a name="--/properties/plan/oneOf/1"/>
         Constraints: `required`: `id`
         
         Additional properties allowed: `true`
@@ -1047,11 +1130,11 @@ Properties:
  - **update_time**: 
     `{string}`Constraints: `minLength`: `1`
  - **links**: 
-    `{array}` <a name="#/properties/links"/>
+    `{array}` <a name="--/properties/links"/>
     
     Each item should be:
     
-    <a href="common#/definitions/links">(common#/definitions/links)</a>
+    <a href="#common--/definitions/links">(common#/definitions/links)</a>
 
 
 **[⬆ Back to Top](#top)**
@@ -1081,7 +1164,7 @@ Properties:
  - **description**: 
     `{string}`Constraints: `minLength`: `1`
  - **type**: 
-    <a href="undefined#/definitions/type">(#/definitions/type)</a>
+    <a href="#undefined--/definitions/type">(#/definitions/type)</a>
  - **state**: 
     `{string}`Constraints: `minLength`: `1`
  - **create_time**: 
@@ -1089,32 +1172,32 @@ Properties:
  - **update_time**: 
     `{string}`Constraints: `minLength`: `1`
  - **payment_definitions**: 
-    `{array}` <a name="#/properties/payment_definitions"/>
+    `{array}` <a name="--/properties/payment_definitions"/>
     
     Each item should be:
     
-    <a href="common#/definitions/payment_definition">(common#/definitions/payment_definition)</a>
+    <a href="#common--/definitions/payment_definition">(common#/definitions/payment_definition)</a>
  - **terms**: 
-    `{array}` <a name="#/properties/terms"/>
+    `{array}` <a name="--/properties/terms"/>
     
     Each item should be:
     
-    <a href="common#/definitions/term">(common#/definitions/term)</a>
+    <a href="#common--/definitions/term">(common#/definitions/term)</a>
  - **merchant_preferences**: 
-    <a href="common#/definitions/merchant_preferences">(common#/definitions/merchant_preferences)</a>
+    <a href="#common--/definitions/merchant_preferences">(common#/definitions/merchant_preferences)</a>
  - **links**: 
-    `{array}` <a name="#/properties/links"/>
+    `{array}` <a name="--/properties/links"/>
     
     Each item should be:
     
-    <a href="common#/definitions/links">(common#/definitions/links)</a>
+    <a href="#common--/definitions/links">(common#/definitions/links)</a>
 
 
 **Definitions**:
 
 
  - **plan#/definitions/meta**
-    `{object}` <a name="plan#/definitions/meta"/>
+    `{object}` <a name="plan--/definitions/meta"/>
     
     Additional properties allowed: `true`
     
@@ -1126,7 +1209,7 @@ Properties:
  - **plan#/definitions/level**
     `{integer}`
  - **plan#/definitions/feature**
-    `{object}` <a name="plan#/definitions/feature"/>
+    `{object}` <a name="plan--/definitions/feature"/>
     
     Additional properties allowed: `true`
     
@@ -1174,7 +1257,7 @@ Properties:
  - **hidden**: 
     `{boolean}`
  - **type**: 
-    <a href="plan#/definitions/type">(plan#/definitions/type)</a>
+    <a href="#plan--/definitions/type">(plan#/definitions/type)</a>
  - **state**: 
     `{string}`Constraints: `minLength`: `1`
  - **create_time**: 
@@ -1182,25 +1265,25 @@ Properties:
  - **update_time**: 
     `{string}`Constraints: `minLength`: `1`
  - **payment_definitions**: 
-    `{array}` <a name="#/properties/payment_definitions"/>
+    `{array}` <a name="--/properties/payment_definitions"/>
     
     Each item should be:
     
-    <a href="response.common#/definitions/payment_definition">(response.common#/definitions/payment_definition)</a>
+    <a href="#response.common--/definitions/payment_definition">(response.common#/definitions/payment_definition)</a>
  - **terms**: 
-    `{array}` <a name="#/properties/terms"/>
+    `{array}` <a name="--/properties/terms"/>
     
     Each item should be:
     
-    <a href="common#/definitions/term">(common#/definitions/term)</a>
+    <a href="#common--/definitions/term">(common#/definitions/term)</a>
  - **merchant_preferences**: 
-    <a href="response.common#/definitions/merchant_preferences">(response.common#/definitions/merchant_preferences)</a>
+    <a href="#response.common--/definitions/merchant_preferences">(response.common#/definitions/merchant_preferences)</a>
  - **links**: 
-    `{array}` <a name="#/properties/links"/>
+    `{array}` <a name="--/properties/links"/>
     
     Each item should be:
     
-    <a href="common#/definitions/links">(common#/definitions/links)</a>
+    <a href="#common--/definitions/links">(common#/definitions/links)</a>
  - **httpStatusCode**: 
     `{integer}`
 
@@ -1232,7 +1315,7 @@ Properties:
  - **name**: 
     `{string}`Constraints: `minLength`: `1`
  - **definition**: 
-    <a href="common#/definitions/payment_definition">(common#/definitions/payment_definition)</a>
+    <a href="#common--/definitions/payment_definition">(common#/definitions/payment_definition)</a>
 
 
 **[⬆ Back to Top](#top)**
@@ -1253,73 +1336,6 @@ SCHEMA data-types
 
  - **data-types#/definitions/nullable-string**
     `{string,null}`
-
-
-**[⬆ Back to Top](#top)**
-## <a name='Response:-Agreement-object'></a> Response: Agreement object
-Agreement response object structure
-
-Исходный файл [response/agreement.json](response/agreement.json).
-```
-SCHEMA response.common.agreement
-```
-
-
-
-### Schema
-
-`{object}` 
-
-Agreement response object structure
-
-
-Additional properties allowed: `true`
-
-
-Properties:
-
-
- - **t**: 
-    `{integer}`
-    #TODO FINDOUT Something internal
- - **httpStatusCode**: 
-    `{integer}`
- - **id**: 
-    `{string}`Constraints: `minLength`: `1`
- - **state**: 
-    `{string}`Constraints: `minLength`: `1`
- - **name**: 
-    `{string}`Constraints: `minLength`: `1`
- - **description**: 
-    `{string}`Constraints: `minLength`: `1`
- - **start_date**: 
-    `{string}`Constraints: `minLength`: `1`
- - **agreement_details**: 
-    <a href="common#/definitions/agreement_details">(common#/definitions/agreement_details)</a>
- - **payer**: 
-    <a href="common#/definitions/payer">(common#/definitions/payer)</a>
- - **shipping_address**: 
-    <a href="common#/definitions/address">(common#/definitions/address)</a>
- - **override_merchant_preferences**: 
-    <a href="common#/definitions/merchant_preferences">(common#/definitions/merchant_preferences)</a>
- - **override_charge_models**: 
-    `{array}` <a name="#/properties/override_charge_models"/>
-    
-    Each item should be:
-    
-    <a href="common#/definitions/override_charge_model">(common#/definitions/override_charge_model)</a>
- - **plan**: 
-    <a href="response.common.plan#">(response.common.plan#)</a>
- - **create_time**: 
-    `{string}`Constraints: `minLength`: `1`
- - **update_time**: 
-    `{string}`Constraints: `minLength`: `1`
- - **links**: 
-    `{array}` <a name="#/properties/links"/>
-    
-    Each item should be:
-    
-    <a href="common#/definitions/links">(common#/definitions/links)</a>
 
 
 **[⬆ Back to Top](#top)**
