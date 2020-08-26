@@ -124,7 +124,7 @@ Constraints: `required`: `["owner","state"]`<br>
 Properties:
 
  - **owner**
-    [Payment owner(common#/definitions/owner)](zSchemaDefinitions.md#common--/definitions/owner))
+    [Payment owner(common#/definitions/owner)](#common--/definitions/owner))
  - **state**
     <a name="agreement.state--/properties/state"/>`{string}`<br>
     Constraints: `enum`: `["suspend","reactivate","cancel"]`<br>
@@ -159,11 +159,11 @@ Constraints: `required`: `["owner","agreement"]`<br>
 Properties:
 
  - **owner**
-    [Payment owner(common#/definitions/owner)](zSchemaDefinitions.md#common--/definitions/owner))
+    [Payment owner(common#/definitions/owner)](#common--/definitions/owner))
  - **agreement**
     *Could be allOf:*
     
-     - [[common] Agreement object(agreement#)](zSchemaDefinitions.md#agreement--))
+     - [[common] Agreement object(agreement#)](#agreement--))
      - <a name="agreement.create--/properties/agreement/allOf/1"/>`{object}`<br>
         Additional properties allowed: `true`<br>
         Properties:
@@ -204,7 +204,7 @@ Properties:
     <a name="response.agreement.create--/properties/url"/>`{string}`<br>
     Constraints: `minLength`: `1`<br>
  - **agreement**
-    [[response.common] Agreement object(response.common.agreement#)](zSchemaDefinitions.md#response.common.agreement--))
+    [[response.common] Agreement object(response.common.agreement#)](#response.common.agreement--))
 
 
 
@@ -261,21 +261,21 @@ Properties:
     <a name="response.agreement.execute--/properties/start_date"/>`{string}`<br>
     Constraints: `minLength`: `1`<br>
  - **agreement_details**
-    [Agreement details(common#/definitions/agreement_details)](zSchemaDefinitions.md#common--/definitions/agreement_details))
+    [Agreement details(common#/definitions/agreement_details)](#common--/definitions/agreement_details))
  - **payer**
-    [Payer information(common#/definitions/payer)](zSchemaDefinitions.md#common--/definitions/payer))
+    [Payer information(common#/definitions/payer)](#common--/definitions/payer))
  - **shipping_address**
-    [Address(common#/definitions/address)](zSchemaDefinitions.md#common--/definitions/address))
+    [Address(common#/definitions/address)](#common--/definitions/address))
  - **override_merchant_preferences**
-    [Merchant preferences(common#/definitions/merchant_preferences)](zSchemaDefinitions.md#common--/definitions/merchant_preferences))
+    [Merchant preferences(common#/definitions/merchant_preferences)](#common--/definitions/merchant_preferences))
  - **override_charge_models**
     <a name="response.agreement.execute--/properties/override_charge_models"/>`{array}`<br>
     Each item should be:
-    [Override charge model(common#/definitions/override_charge_model)](zSchemaDefinitions.md#common--/definitions/override_charge_model))
+    [Override charge model(common#/definitions/override_charge_model)](#common--/definitions/override_charge_model))
     
     
  - **plan**
-    [[response.common] Payment plan object(response.common.plan#)](zSchemaDefinitions.md#response.common.plan--))
+    [[response.common] Payment plan object(response.common.plan#)](#response.common.plan--))
  - **create_time**
     <a name="response.agreement.execute--/properties/create_time"/>`{string}`<br>
     Constraints: `minLength`: `1`<br>
@@ -285,7 +285,7 @@ Properties:
  - **links**
     <a name="response.agreement.execute--/properties/links"/>`{array}`<br>
     Each item should be:
-    [Payment system provided links(common#/definitions/links)](zSchemaDefinitions.md#common--/definitions/links))
+    [Payment system provided links(common#/definitions/links)](#common--/definitions/links))
     
     
 
@@ -314,7 +314,7 @@ Properties:
     <a name="agreement.get--/properties/id"/>`{string}`<br>
     Constraints: `minLength`: `1`<br>
  - **owner**
-    [Payment owner(common#/definitions/owner)](zSchemaDefinitions.md#common--/definitions/owner))
+    [Payment owner(common#/definitions/owner)](#common--/definitions/owner))
 
 
 ### Response schema:
@@ -327,7 +327,7 @@ Properties:
     <a name="response.agreement.get--/properties/id"/>`{string}`<br>
     Constraints: `minLength`: `4`<br>
  - **owner**
-    [Payment owner(common#/definitions/owner)](zSchemaDefinitions.md#common--/definitions/owner))
+    [Payment owner(common#/definitions/owner)](#common--/definitions/owner))
  - **state**
     <a name="response.agreement.get--/properties/state"/>`{string}`<br>
     
@@ -337,9 +337,9 @@ Properties:
     <a name="response.agreement.get--/properties/token"/>`{string}`<br>
     Constraints: `minLength`: `10`<br>
  - **plan**
-    [Payment plan id(common#/definitions/planId)](zSchemaDefinitions.md#common--/definitions/planId))
+    [Payment plan id(common#/definitions/planId)](#common--/definitions/planId))
  - **agreement**
-    [[response.common] Agreement object(response.common.agreement#)](zSchemaDefinitions.md#response.common.agreement--))
+    [[response.common] Agreement object(response.common.agreement#)](#response.common.agreement--))
 
 
 
@@ -377,7 +377,7 @@ Properties:
     <a name="response.agreement.forUser--/properties/id"/>`{string}`<br>
     Constraints: `minLength`: `4`<br>
  - **owner**
-    [Payment owner(common#/definitions/owner)](zSchemaDefinitions.md#common--/definitions/owner))
+    [Payment owner(common#/definitions/owner)](#common--/definitions/owner))
  - **state**
     <a name="response.agreement.forUser--/properties/state"/>`{string}`<br>
     
@@ -387,9 +387,9 @@ Properties:
     <a name="response.agreement.forUser--/properties/token"/>`{string}`<br>
     Constraints: `minLength`: `10`<br>
  - **plan**
-    [Payment plan id(common#/definitions/planId)](zSchemaDefinitions.md#common--/definitions/planId))
+    [Payment plan id(common#/definitions/planId)](#common--/definitions/planId))
  - **agreement**
-    [[response.common] Agreement object(response.common.agreement#)](zSchemaDefinitions.md#response.common.agreement--))
+    [[response.common] Agreement object(response.common.agreement#)](#response.common.agreement--))
 
 
 
@@ -418,7 +418,7 @@ Properties:
     <a name="agreement.list--/properties/limit"/>`{integer}`<br>
     Constraints: `minimum`: `1`, `maximum`: `100`<br>
  - **filter**
-    [(common#/definitions/filter)](zSchemaDefinitions.md#common--/definitions/filter))
+    [(common#/definitions/filter)](#common--/definitions/filter))
  - **criteria**
     <a name="agreement.list--/properties/criteria"/>`{string}`<br>
     Constraints: `minLength`: `1`<br>
@@ -426,7 +426,7 @@ Properties:
     <a name="agreement.list--/properties/order"/>`{string}`<br>
     Constraints: `enum`: `["ASC","DESC"]`<br>
  - **owner**
-    [Payment owner(common#/definitions/owner)](zSchemaDefinitions.md#common--/definitions/owner))
+    [Payment owner(common#/definitions/owner)](#common--/definitions/owner))
 
 
 ### Response schema:
@@ -439,7 +439,7 @@ Properties:
  - **items**
     <a name="response.agreement.list--/properties/items"/>`{array}`<br>
     Each item should be:
-    [`agreement.get` action response(response.agreement.get#)](Agreement.md#response.agreement.get--))
+    [`agreement.get` action response(response.agreement.get#)](#response.agreement.get--))
     
     
  - **cursor**
@@ -582,7 +582,7 @@ Constraints: `required`: `["id"]`<br>
 Properties:
 
  - **id**
-    [Charge id(common#/definitions/chargeId)](zSchemaDefinitions.md#common--/definitions/chargeId))
+    [Charge id(common#/definitions/chargeId)](#common--/definitions/chargeId))
 
 
 ### Response schema:
@@ -606,7 +606,7 @@ Properties:
         <a name="response.charge.get--/properties/data/properties/createAt"/>`{string}`<br>
         Constraints: `format`: `"date"`<br>
      - **owner**
-        [Payment owner(common#/definitions/owner)](zSchemaDefinitions.md#common--/definitions/owner))
+        [Payment owner(common#/definitions/owner)](#common--/definitions/owner))
      - **failReason**
         <a name="response.charge.get--/properties/data/properties/failReason"/>`{string}`<br>
     
@@ -633,7 +633,7 @@ Constraints: `required`: `["limit","offset"]`<br>
 Properties:
 
  - **owner**
-    [Payment owner(common#/definitions/owner)](zSchemaDefinitions.md#common--/definitions/owner))
+    [Payment owner(common#/definitions/owner)](#common--/definitions/owner))
  - **limit**
     <a name="charge.list--/properties/limit"/>`{integer}`<br>
     Constraints: `minimum`: `1`, `maximum`: `100`, `default`: `20`<br>
@@ -665,7 +665,7 @@ Properties:
         <a name="response.charge.list--/properties/data/items/properties/createAt"/>`{string}`<br>
         Constraints: `format`: `"date"`<br>
      - **owner**
-        [Payment owner(common#/definitions/owner)](zSchemaDefinitions.md#common--/definitions/owner))
+        [Payment owner(common#/definitions/owner)](#common--/definitions/owner))
      - **failReason**
         <a name="response.charge.list--/properties/data/items/properties/failReason"/>`{string}`<br>
     
@@ -736,7 +736,7 @@ Properties:
         <a name="response.charge.paypal.capture--/properties/data/properties/createAt"/>`{string}`<br>
         Constraints: `format`: `"date"`<br>
      - **owner**
-        [Payment owner(common#/definitions/owner)](zSchemaDefinitions.md#common--/definitions/owner))
+        [Payment owner(common#/definitions/owner)](#common--/definitions/owner))
      - **failReason**
         <a name="response.charge.paypal.capture--/properties/data/properties/failReason"/>`{string}`<br>
     
@@ -801,7 +801,7 @@ Properties:
         <a name="response.charge.paypal.create--/properties/data/properties/createAt"/>`{string}`<br>
         Constraints: `format`: `"date"`<br>
      - **owner**
-        [Payment owner(common#/definitions/owner)](zSchemaDefinitions.md#common--/definitions/owner))
+        [Payment owner(common#/definitions/owner)](#common--/definitions/owner))
      - **failReason**
         <a name="response.charge.paypal.create--/properties/data/properties/failReason"/>`{string}`<br>
     
@@ -816,9 +816,9 @@ Properties:
         Properties:
         
          - **approvalUrl**
-            [Payment system provided links(common#/definitions/links)](zSchemaDefinitions.md#common--/definitions/links))
+            [Payment system provided links(common#/definitions/links)](#common--/definitions/links))
          - **paymentId**
-            [Payment id(common#/definitions/paymentId)](zSchemaDefinitions.md#common--/definitions/paymentId))
+            [Payment id(common#/definitions/paymentId)](#common--/definitions/paymentId))
         
     
 
@@ -895,7 +895,7 @@ Properties:
             <a name="response.charge.paypal.return--/properties/data/properties/attributes/properties/createAt"/>`{string}`<br>
             Constraints: `format`: `"date-time"`<br>
          - **owner**
-            [Payment owner(common#/definitions/owner)](zSchemaDefinitions.md#common--/definitions/owner))
+            [Payment owner(common#/definitions/owner)](#common--/definitions/owner))
          - **failReason**
             <a name="response.charge.paypal.return--/properties/data/properties/attributes/properties/failReason"/>`{string}`<br>
         
@@ -911,7 +911,7 @@ Properties:
         Properties:
         
          - **payer**
-            [Payer information(common#/definitions/payer)](zSchemaDefinitions.md#common--/definitions/payer))
+            [Payer information(common#/definitions/payer)](#common--/definitions/payer))
         
     
 
@@ -962,7 +962,7 @@ Properties:
         <a name="response.charge.paypal.void--/properties/data/properties/createAt"/>`{string}`<br>
         Constraints: `format`: `"date"`<br>
      - **owner**
-        [Payment owner(common#/definitions/owner)](zSchemaDefinitions.md#common--/definitions/owner))
+        [Payment owner(common#/definitions/owner)](#common--/definitions/owner))
      - **failReason**
         <a name="response.charge.paypal.void--/properties/data/properties/failReason"/>`{string}`<br>
     
@@ -1052,7 +1052,7 @@ Properties:
         <a name="response.charge.stripe.create--/properties/data/properties/createAt"/>`{string}`<br>
         Constraints: `format`: `"date"`<br>
      - **owner**
-        [Payment owner(common#/definitions/owner)](zSchemaDefinitions.md#common--/definitions/owner))
+        [Payment owner(common#/definitions/owner)](#common--/definitions/owner))
      - **failReason**
         <a name="response.charge.stripe.create--/properties/data/properties/failReason"/>`{string}`<br>
     
@@ -1150,17 +1150,17 @@ Properties:
     <a name="plan.create--/properties/alias"/>`{string}`<br>
     Constraints: `minLength`: `1`<br>
  - **level**
-    [(plan#/definitions/level)](zSchemaDefinitions.md#plan--/definitions/level))
+    [(plan#/definitions/level)](#plan--/definitions/level))
  - **subscriptions**
     <a name="plan.create--/properties/subscriptions"/>`{array}`<br>
     Each item should be:
-    [[common] Subscription object(subscription#)](zSchemaDefinitions.md#subscription--))
+    [[common] Subscription object(subscription#)](#subscription--))
     
     
  - **plan**
-    [[common] Payment plan object(plan#)](zSchemaDefinitions.md#plan--))
+    [[common] Payment plan object(plan#)](#plan--))
  - **meta**
-    [(plan#/definitions/meta)](zSchemaDefinitions.md#plan--/definitions/meta))
+    [(plan#/definitions/meta)](#plan--/definitions/meta))
 
 
 ### Response schema:
@@ -1170,7 +1170,7 @@ Additional properties allowed: `false`<br>
 Properties:
 
  - **id**
-    [Payment plan id(common#/definitions/planId)](zSchemaDefinitions.md#common--/definitions/planId))
+    [Payment plan id(common#/definitions/planId)](#common--/definitions/planId))
  - **state**
     <a name="response.plan.create--/properties/state"/>`{string}`<br>
     
@@ -1187,23 +1187,23 @@ Properties:
  - **hidden**
     <a name="response.plan.create--/properties/hidden"/>`{boolean}`<br>
  - **level**
-    [(plan#/definitions/level)](zSchemaDefinitions.md#plan--/definitions/level))
+    [(plan#/definitions/level)](#plan--/definitions/level))
  - **subs**
     <a name="response.plan.create--/properties/subs"/>`{array}`<br>
     Each item should be:
-    [[response.common] Subscription object(response.common.subscription#)](zSchemaDefinitions.md#response.common.subscription--))
+    [[response.common] Subscription object(response.common.subscription#)](#response.common.subscription--))
     
     
  - **plan**
-    [[response.common] Payment plan object(response.common.plan#)](zSchemaDefinitions.md#response.common.plan--))
+    [[response.common] Payment plan object(response.common.plan#)](#response.common.plan--))
  - **meta**
-    [(plan#/definitions/meta)](zSchemaDefinitions.md#plan--/definitions/meta))
+    [(plan#/definitions/meta)](#plan--/definitions/meta))
  - **type**
-    [(plan#/definitions/type)](zSchemaDefinitions.md#plan--/definitions/type))
+    [(plan#/definitions/type)](#plan--/definitions/type))
  - **month**
-    [(data-types#/definitions/nullable-string)](zSchemaDefinitions.md#data-types--/definitions/nullable-string))
+    [(data-types#/definitions/nullable-string)](#data-types--/definitions/nullable-string))
  - **year**
-    [(data-types#/definitions/nullable-string)](zSchemaDefinitions.md#data-types--/definitions/nullable-string))
+    [(data-types#/definitions/nullable-string)](#data-types--/definitions/nullable-string))
 
 
 
@@ -1232,17 +1232,17 @@ Properties:
     <a name="plan.create--/properties/alias"/>`{string}`<br>
     Constraints: `minLength`: `1`<br>
  - **level**
-    [(plan#/definitions/level)](zSchemaDefinitions.md#plan--/definitions/level))
+    [(plan#/definitions/level)](#plan--/definitions/level))
  - **subscriptions**
     <a name="plan.create--/properties/subscriptions"/>`{array}`<br>
     Each item should be:
-    [[common] Subscription object(subscription#)](zSchemaDefinitions.md#subscription--))
+    [[common] Subscription object(subscription#)](#subscription--))
     
     
  - **plan**
-    [[common] Payment plan object(plan#)](zSchemaDefinitions.md#plan--))
+    [[common] Payment plan object(plan#)](#plan--))
  - **meta**
-    [(plan#/definitions/meta)](zSchemaDefinitions.md#plan--/definitions/meta))
+    [(plan#/definitions/meta)](#plan--/definitions/meta))
 
 
 ### Response schema:
@@ -1252,7 +1252,7 @@ Additional properties allowed: `false`<br>
 Properties:
 
  - **id**
-    [Payment plan id(common#/definitions/planId)](zSchemaDefinitions.md#common--/definitions/planId))
+    [Payment plan id(common#/definitions/planId)](#common--/definitions/planId))
  - **state**
     <a name="response.plan.create--/properties/state"/>`{string}`<br>
     
@@ -1269,23 +1269,23 @@ Properties:
  - **hidden**
     <a name="response.plan.create--/properties/hidden"/>`{boolean}`<br>
  - **level**
-    [(plan#/definitions/level)](zSchemaDefinitions.md#plan--/definitions/level))
+    [(plan#/definitions/level)](#plan--/definitions/level))
  - **subs**
     <a name="response.plan.create--/properties/subs"/>`{array}`<br>
     Each item should be:
-    [[response.common] Subscription object(response.common.subscription#)](zSchemaDefinitions.md#response.common.subscription--))
+    [[response.common] Subscription object(response.common.subscription#)](#response.common.subscription--))
     
     
  - **plan**
-    [[response.common] Payment plan object(response.common.plan#)](zSchemaDefinitions.md#response.common.plan--))
+    [[response.common] Payment plan object(response.common.plan#)](#response.common.plan--))
  - **meta**
-    [(plan#/definitions/meta)](zSchemaDefinitions.md#plan--/definitions/meta))
+    [(plan#/definitions/meta)](#plan--/definitions/meta))
  - **type**
-    [(plan#/definitions/type)](zSchemaDefinitions.md#plan--/definitions/type))
+    [(plan#/definitions/type)](#plan--/definitions/type))
  - **month**
-    [(data-types#/definitions/nullable-string)](zSchemaDefinitions.md#data-types--/definitions/nullable-string))
+    [(data-types#/definitions/nullable-string)](#data-types--/definitions/nullable-string))
  - **year**
-    [(data-types#/definitions/nullable-string)](zSchemaDefinitions.md#data-types--/definitions/nullable-string))
+    [(data-types#/definitions/nullable-string)](#data-types--/definitions/nullable-string))
 
 
 
@@ -1330,7 +1330,7 @@ Additional properties allowed: `false`<br>
 Properties:
 
  - **id**
-    [Payment plan id(common#/definitions/planId)](zSchemaDefinitions.md#common--/definitions/planId))
+    [Payment plan id(common#/definitions/planId)](#common--/definitions/planId))
  - **state**
     <a name="response.plan.get--/properties/state"/>`{string}`<br>
     
@@ -1347,23 +1347,23 @@ Properties:
  - **hidden**
     <a name="response.plan.get--/properties/hidden"/>`{boolean}`<br>
  - **level**
-    [(plan#/definitions/level)](zSchemaDefinitions.md#plan--/definitions/level))
+    [(plan#/definitions/level)](#plan--/definitions/level))
  - **subs**
     <a name="response.plan.get--/properties/subs"/>`{array}`<br>
     Each item should be:
-    [[response.common] Subscription object(response.common.subscription#)](zSchemaDefinitions.md#response.common.subscription--))
+    [[response.common] Subscription object(response.common.subscription#)](#response.common.subscription--))
     
     
  - **plan**
-    [[response.common] Payment plan object(response.common.plan#)](zSchemaDefinitions.md#response.common.plan--))
+    [[response.common] Payment plan object(response.common.plan#)](#response.common.plan--))
  - **meta**
-    [(plan#/definitions/meta)](zSchemaDefinitions.md#plan--/definitions/meta))
+    [(plan#/definitions/meta)](#plan--/definitions/meta))
  - **type**
-    [(plan#/definitions/type)](zSchemaDefinitions.md#plan--/definitions/type))
+    [(plan#/definitions/type)](#plan--/definitions/type))
  - **month**
-    [(data-types#/definitions/nullable-string)](zSchemaDefinitions.md#data-types--/definitions/nullable-string))
+    [(data-types#/definitions/nullable-string)](#data-types--/definitions/nullable-string))
  - **year**
-    [(data-types#/definitions/nullable-string)](zSchemaDefinitions.md#data-types--/definitions/nullable-string))
+    [(data-types#/definitions/nullable-string)](#data-types--/definitions/nullable-string))
 
 
 
@@ -1392,7 +1392,7 @@ Properties:
     <a name="plan.list--/properties/limit"/>`{integer}`<br>
     Constraints: `minimum`: `1`, `maximum`: `100`<br>
  - **filter**
-    [(common#/definitions/filter)](zSchemaDefinitions.md#common--/definitions/filter))
+    [(common#/definitions/filter)](#common--/definitions/filter))
  - **criteria**
     <a name="plan.list--/properties/criteria"/>`{string}`<br>
     Constraints: `minLength`: `1`<br>
@@ -1400,7 +1400,7 @@ Properties:
     <a name="plan.list--/properties/order"/>`{string}`<br>
     Constraints: `enum`: `["ASC","DESC"]`<br>
  - **owner**
-    [Payment owner(common#/definitions/owner)](zSchemaDefinitions.md#common--/definitions/owner))
+    [Payment owner(common#/definitions/owner)](#common--/definitions/owner))
 
 
 ### Response schema:
@@ -1413,7 +1413,7 @@ Properties:
  - **items**
     <a name="response.plan.list--/properties/items"/>`{array}`<br>
     Each item should be:
-    [Plan information(response.plan.get#)](Plan.md#response.plan.get--))
+    [Plan information(response.plan.get#)](#response.plan.get--))
     
     
  - **cursor**
@@ -1445,7 +1445,7 @@ Constraints: `required`: `["id"]`, `minProperties`: `2`<br>
 Properties:
 
  - **id**
-    [Payment plan id(common#/definitions/planId)](zSchemaDefinitions.md#common--/definitions/planId))
+    [Payment plan id(common#/definitions/planId)](#common--/definitions/planId))
  - **alias**
     <a name="plan.update--/properties/alias"/>`{string}`<br>
     Constraints: `minLength`: `1`, `not`: `{"const":"free"}`<br>
@@ -1461,14 +1461,14 @@ Properties:
     Properties:
     
      - **monthly**
-        [Subscription(plan.update#/definitions/subscription)](Plan.md#plan.update--/definitions/subscription))
+        [Subscription(plan.update#/definitions/subscription)](#plan.update--/definitions/subscription))
      - **yearly**
-        [Subscription(plan.update#/definitions/subscription)](Plan.md#plan.update--/definitions/subscription))
+        [Subscription(plan.update#/definitions/subscription)](#plan.update--/definitions/subscription))
     
  - **meta**
-    [(plan#/definitions/meta)](zSchemaDefinitions.md#plan--/definitions/meta))
+    [(plan#/definitions/meta)](#plan--/definitions/meta))
  - **level**
-    [(plan#/definitions/level)](zSchemaDefinitions.md#plan--/definitions/level))
+    [(plan#/definitions/level)](#plan--/definitions/level))
 
 **Definitions**:
 
@@ -1495,7 +1495,7 @@ Additional properties allowed: `false`<br>
 Properties:
 
  - **id**
-    [Payment plan id(common#/definitions/planId)](zSchemaDefinitions.md#common--/definitions/planId))
+    [Payment plan id(common#/definitions/planId)](#common--/definitions/planId))
  - **state**
     <a name="response.plan.update--/properties/state"/>`{string}`<br>
     
@@ -1512,23 +1512,23 @@ Properties:
  - **hidden**
     <a name="response.plan.update--/properties/hidden"/>`{boolean}`<br>
  - **level**
-    [(plan#/definitions/level)](zSchemaDefinitions.md#plan--/definitions/level))
+    [(plan#/definitions/level)](#plan--/definitions/level))
  - **subs**
     <a name="response.plan.update--/properties/subs"/>`{array}`<br>
     Each item should be:
-    [[response.common] Subscription object(response.common.subscription#)](zSchemaDefinitions.md#response.common.subscription--))
+    [[response.common] Subscription object(response.common.subscription#)](#response.common.subscription--))
     
     
  - **plan**
-    [[response.common] Payment plan object(response.common.plan#)](zSchemaDefinitions.md#response.common.plan--))
+    [[response.common] Payment plan object(response.common.plan#)](#response.common.plan--))
  - **meta**
-    [(plan#/definitions/meta)](zSchemaDefinitions.md#plan--/definitions/meta))
+    [(plan#/definitions/meta)](#plan--/definitions/meta))
  - **type**
-    [(plan#/definitions/type)](zSchemaDefinitions.md#plan--/definitions/type))
+    [(plan#/definitions/type)](#plan--/definitions/type))
  - **month**
-    [(data-types#/definitions/nullable-string)](zSchemaDefinitions.md#data-types--/definitions/nullable-string))
+    [(data-types#/definitions/nullable-string)](#data-types--/definitions/nullable-string))
  - **year**
-    [(data-types#/definitions/nullable-string)](zSchemaDefinitions.md#data-types--/definitions/nullable-string))
+    [(data-types#/definitions/nullable-string)](#data-types--/definitions/nullable-string))
 
 
 
@@ -1553,7 +1553,7 @@ Constraints: `required`: `["owner","amount"]`<br>
 Properties:
 
  - **owner**
-    [Payment owner(common#/definitions/owner)](zSchemaDefinitions.md#common--/definitions/owner))
+    [Payment owner(common#/definitions/owner)](#common--/definitions/owner))
  - **amount**
     <a name="sale.create--/properties/amount"/>`{integer}`<br>
     Constraints: `minimum`: `1`, `maximum`: `10000`<br>
@@ -1570,7 +1570,7 @@ Properties:
  - **url**
     <a name="response.sale.create--/properties/url"/>`{string}`<br>
  - **sale**
-    [[response.common] Sale object(response.common.sale)](zSchemaDefinitions.md#response.common.saleresponse.common.sale))
+    [[response.common] Sale object(response.common.sale)](#response.common.saleresponse.common.sale))
 
 
 
@@ -1594,7 +1594,7 @@ Constraints: `required`: `["owner","amount"]`<br>
 Properties:
 
  - **owner**
-    [Payment owner(common#/definitions/owner)](zSchemaDefinitions.md#common--/definitions/owner))
+    [Payment owner(common#/definitions/owner)](#common--/definitions/owner))
  - **amount**
     <a name="sale.create--/properties/amount"/>`{integer}`<br>
     Constraints: `minimum`: `1`, `maximum`: `10000`<br>
@@ -1611,7 +1611,7 @@ Properties:
  - **url**
     <a name="response.sale.create--/properties/url"/>`{string}`<br>
  - **sale**
-    [[response.common] Sale object(response.common.sale)](zSchemaDefinitions.md#response.common.saleresponse.common.sale))
+    [[response.common] Sale object(response.common.sale)](#response.common.saleresponse.common.sale))
 
 
 
@@ -1638,7 +1638,7 @@ Properties:
     <a name="sale.get--/properties/id"/>`{string}`<br>
     Constraints: `minLength`: `1`<br>
  - **owner**
-    [Payment owner(common#/definitions/owner)](zSchemaDefinitions.md#common--/definitions/owner))
+    [Payment owner(common#/definitions/owner)](#common--/definitions/owner))
 
 
 ### Response schema:
@@ -1654,7 +1654,7 @@ Properties:
     <a name="response.sale.get--/properties/intent"/>`{string}`<br>
     Constraints: `enum`: `["sale","authorize","order"]`<br>
  - **payer**
-    [Payer information(common#/definitions/payer)](zSchemaDefinitions.md#common--/definitions/payer))
+    [Payer information(common#/definitions/payer)](#common--/definitions/payer))
  - **transactions**
     <a name="response.sale.get--/properties/transactions"/>`{array}`<br>
     
@@ -1699,7 +1699,7 @@ Properties:
          - **items**
             <a name="response.sale.get--/properties/transactions/items/properties/item_list/properties/items"/>`{array}`<br>
             Each item should be:
-            [Purchase item(common#/definitions/item)](zSchemaDefinitions.md#common--/definitions/item))
+            [Purchase item(common#/definitions/item)](#common--/definitions/item))
             
             
         
@@ -1752,7 +1752,7 @@ Properties:
     <a name="sale.list--/properties/limit"/>`{integer}`<br>
     Constraints: `minimum`: `1`, `maximum`: `100`<br>
  - **filter**
-    [(common#/definitions/filter)](zSchemaDefinitions.md#common--/definitions/filter))
+    [(common#/definitions/filter)](#common--/definitions/filter))
  - **criteria**
     <a name="sale.list--/properties/criteria"/>`{string}`<br>
     Constraints: `minLength`: `1`<br>
@@ -1760,7 +1760,7 @@ Properties:
     <a name="sale.list--/properties/order"/>`{string}`<br>
     Constraints: `enum`: `["ASC","DESC"]`<br>
  - **owner**
-    [Payment owner(common#/definitions/owner)](zSchemaDefinitions.md#common--/definitions/owner))
+    [Payment owner(common#/definitions/owner)](#common--/definitions/owner))
 
 
 ### Response schema:
@@ -1776,7 +1776,7 @@ Properties:
     List of the existing Sales
     
     Each item should be:
-    [[common] Sale object(sale)](zSchemaDefinitions.md#salesale))
+    [[common] Sale object(sale)](#salesale))
     
     
  - **cursor**
@@ -1835,11 +1835,11 @@ Properties:
     <a name="transaction.aggregate--/properties/owners"/>`{array}`<br>
     Constraints: `minItems`: `1`<br>
     Each item should be:
-    [Payment owner(common#/definitions/owner)](zSchemaDefinitions.md#common--/definitions/owner))
+    [Payment owner(common#/definitions/owner)](#common--/definitions/owner))
     
     
  - **filter**
-    [(common#/definitions/filter)](zSchemaDefinitions.md#common--/definitions/filter))
+    [(common#/definitions/filter)](#common--/definitions/filter))
  - **aggregate**
     <a name="transaction.aggregate--/properties/aggregate"/>`{object}`<br>
     Additional properties allowed: `true`<br>
@@ -1898,12 +1898,12 @@ Properties:
  - **criteria**
     <a name="transaction.common--/properties/criteria"/>`{string}`<br>
  - **owner**
-    [Payment owner(common#/definitions/owner)](zSchemaDefinitions.md#common--/definitions/owner))
+    [Payment owner(common#/definitions/owner)](#common--/definitions/owner))
  - **type**
     <a name="transaction.common--/properties/type"/>`{string}`<br>
     Constraints: `enum`: `["sale","subscription"]`<br>
  - **filter**
-    [(common#/definitions/filter)](zSchemaDefinitions.md#common--/definitions/filter))
+    [(common#/definitions/filter)](#common--/definitions/filter))
 
 
 ### Response schema:
@@ -1916,7 +1916,7 @@ Properties:
  - **items**
     <a name="response.transaction.common--/properties/items"/>`{array}`<br>
     Each item should be:
-    [[response.common] Transaction common information object(response.common.transaction-common#)](zSchemaDefinitions.md#response.common.transaction-common--))
+    [[response.common] Transaction common information object(response.common.transaction-common#)](#response.common.transaction-common--))
     
     
  - **cursor**
@@ -1951,11 +1951,11 @@ Properties:
     <a name="transaction.aggregate--/properties/owners"/>`{array}`<br>
     Constraints: `minItems`: `1`<br>
     Each item should be:
-    [Payment owner(common#/definitions/owner)](zSchemaDefinitions.md#common--/definitions/owner))
+    [Payment owner(common#/definitions/owner)](#common--/definitions/owner))
     
     
  - **filter**
-    [(common#/definitions/filter)](zSchemaDefinitions.md#common--/definitions/filter))
+    [(common#/definitions/filter)](#common--/definitions/filter))
  - **aggregate**
     <a name="transaction.aggregate--/properties/aggregate"/>`{object}`<br>
     Additional properties allowed: `true`<br>
@@ -2009,7 +2009,7 @@ Properties:
     <a name="transaction.list--/properties/limit"/>`{integer}`<br>
     Constraints: `minimum`: `1`, `maximum`: `100`<br>
  - **filter**
-    [(common#/definitions/filter)](zSchemaDefinitions.md#common--/definitions/filter))
+    [(common#/definitions/filter)](#common--/definitions/filter))
  - **criteria**
     <a name="transaction.list--/properties/criteria"/>`{string}`<br>
     Constraints: `minLength`: `1`<br>
@@ -2017,7 +2017,7 @@ Properties:
     <a name="transaction.list--/properties/order"/>`{string}`<br>
     Constraints: `enum`: `["ASC","DESC"]`<br>
  - **owner**
-    [Payment owner(common#/definitions/owner)](zSchemaDefinitions.md#common--/definitions/owner))
+    [Payment owner(common#/definitions/owner)](#common--/definitions/owner))
 
 
 ### Response schema:
@@ -2030,7 +2030,7 @@ Properties:
  - **items**
     <a name="response.transaction.list--/properties/items"/>`{array}`<br>
     Each item should be:
-    [[response.common] Transaction object(response.common.transaction#)](zSchemaDefinitions.md#response.common.transaction--))
+    [[response.common] Transaction object(response.common.transaction#)](#response.common.transaction--))
     
     
  - **cursor**
@@ -2062,7 +2062,7 @@ Constraints: `required`: `["id"]`<br>
 Properties:
 
  - **owner**
-    [Payment owner(common#/definitions/owner)](zSchemaDefinitions.md#common--/definitions/owner))
+    [Payment owner(common#/definitions/owner)](#common--/definitions/owner))
  - **id**
     <a name="transaction.sync--/properties/id"/>`{string}`<br>
     Constraints: `minLength`: `1`<br>
@@ -2081,11 +2081,11 @@ Additional properties allowed: `false`<br>
 Properties:
 
  - **agreement**
-    [[response.common] Agreement object(response.common.agreement#)](zSchemaDefinitions.md#response.common.agreement--))
+    [[response.common] Agreement object(response.common.agreement#)](#response.common.agreement--))
  - **transactions**
     <a name="response.transaction.sync--/properties/transactions"/>`{array}`<br>
     Each item should be:
-    [[response.common] Transaction information object(response.common.transaction-info#)](zSchemaDefinitions.md#response.common.transaction-info--))
+    [[response.common] Transaction information object(response.common.transaction-info#)](#response.common.transaction-info--))
     
     
 
@@ -2153,23 +2153,23 @@ Properties:
     <a name="agreement--/properties/start_date"/>`{string}`<br>
     Constraints: `minLength`: `1`<br>
  - **agreement_details**
-    [Agreement details(common#/definitions/agreement_details)](zSchemaDefinitions.md#common--/definitions/agreement_details))
+    [Agreement details(common#/definitions/agreement_details)](#common--/definitions/agreement_details))
  - **payer**
-    [Payer information(common#/definitions/payer)](zSchemaDefinitions.md#common--/definitions/payer))
+    [Payer information(common#/definitions/payer)](#common--/definitions/payer))
  - **shipping_address**
-    [Address(common#/definitions/address)](zSchemaDefinitions.md#common--/definitions/address))
+    [Address(common#/definitions/address)](#common--/definitions/address))
  - **override_merchant_preferences**
-    [Merchant preferences(common#/definitions/merchant_preferences)](zSchemaDefinitions.md#common--/definitions/merchant_preferences))
+    [Merchant preferences(common#/definitions/merchant_preferences)](#common--/definitions/merchant_preferences))
  - **override_charge_models**
     <a name="agreement--/properties/override_charge_models"/>`{array}`<br>
     Each item should be:
-    [Override charge model(common#/definitions/override_charge_model)](zSchemaDefinitions.md#common--/definitions/override_charge_model))
+    [Override charge model(common#/definitions/override_charge_model)](#common--/definitions/override_charge_model))
     
     
  - **plan**
     *Could be oneOf:*
     
-     - [plan.create(plan.create#)](Plan.md#plan.create--))
+     - [plan.create(plan.create#)](#plan.create--))
      - <a name="agreement--/properties/plan/oneOf/1"/>`{object}`<br>
         Additional properties allowed: `true`<br>
         Constraints: `required`: `["id"]`<br>
@@ -2189,7 +2189,7 @@ Properties:
  - **links**
     <a name="agreement--/properties/links"/>`{array}`<br>
     Each item should be:
-    [Payment system provided links(common#/definitions/links)](zSchemaDefinitions.md#common--/definitions/links))
+    [Payment system provided links(common#/definitions/links)](#common--/definitions/links))
     
     
 
@@ -2271,12 +2271,12 @@ SCHEMA common
         <a name="common--/definitions/term/properties/type"/>`{string}`<br>
         Constraints: `minLength`: `1`<br>
      - **max_billing_amount**
-        [(common#/definitions/currency)](zSchemaDefinitions.md#common--/definitions/currency))
+        [(common#/definitions/currency)](#common--/definitions/currency))
      - **occurences**
         <a name="common--/definitions/term/properties/occurences"/>`{string}`<br>
         Constraints: `minLength`: `1`<br>
      - **amount_range**
-        [(common#/definitions/currency)](zSchemaDefinitions.md#common--/definitions/currency))
+        [(common#/definitions/currency)](#common--/definitions/currency))
      - **buyer_editable**
         <a name="common--/definitions/term/properties/buyer_editable"/>`{string}`<br>
         Constraints: `minLength`: `1`<br>
@@ -2307,7 +2307,7 @@ SCHEMA common
         <a name="common--/definitions/payment_definition/properties/cycles"/>`{string}`<br>
         Constraints: `minLength`: `1`<br>
      - **amount**
-        [(common#/definitions/currency)](zSchemaDefinitions.md#common--/definitions/currency))
+        [(common#/definitions/currency)](#common--/definitions/currency))
      - **charge_models**
         <a name="common--/definitions/payment_definition/properties/charge_models"/>`{array}`<br>
         Each item should be:
@@ -2323,7 +2323,7 @@ SCHEMA common
             <a name="common--/definitions/payment_definition/properties/charge_models/items/properties/type"/>`{string}`<br>
             Constraints: `minLength`: `1`<br>
          - **amount**
-            [(common#/definitions/currency)](zSchemaDefinitions.md#common--/definitions/currency))
+            [(common#/definitions/currency)](#common--/definitions/currency))
         
         
         
@@ -2339,7 +2339,7 @@ SCHEMA common
         <a name="common--/definitions/merchant_preferences/properties/id"/>`{string}`<br>
         Constraints: `minLength`: `1`<br>
      - **setup_fee**
-        [(common#/definitions/currency)](zSchemaDefinitions.md#common--/definitions/currency))
+        [(common#/definitions/currency)](#common--/definitions/currency))
      - **cancel_url**
         <a name="common--/definitions/merchant_preferences/properties/cancel_url"/>`{string}`<br>
         Constraints: `minLength`: `1`<br>
@@ -2372,7 +2372,7 @@ SCHEMA common
     Properties:
     
      - **outstanding_balance**
-        [(common#/definitions/currency)](zSchemaDefinitions.md#common--/definitions/currency))
+        [(common#/definitions/currency)](#common--/definitions/currency))
      - **cycles_remaining**
         <a name="common--/definitions/agreement_details/properties/cycles_remaining"/>`{string}`<br>
         Constraints: `minLength`: `1`<br>
@@ -2386,7 +2386,7 @@ SCHEMA common
         <a name="common--/definitions/agreement_details/properties/last_payment_date"/>`{string}`<br>
         Constraints: `minLength`: `1`<br>
      - **last_payment_amount**
-        [(common#/definitions/currency)](zSchemaDefinitions.md#common--/definitions/currency))
+        [(common#/definitions/currency)](#common--/definitions/currency))
      - **final_payment_date**
         <a name="common--/definitions/agreement_details/properties/final_payment_date"/>`{string}`<br>
         Constraints: `minLength`: `1`<br>
@@ -2415,13 +2415,13 @@ SCHEMA common
      - **funding_instruments**
         <a name="common--/definitions/payer/properties/funding_instruments"/>`{array}`<br>
         Each item should be:
-        [Funding instruments(common#/definitions/funding_instrument)](zSchemaDefinitions.md#common--/definitions/funding_instrument))
+        [Funding instruments(common#/definitions/funding_instrument)](#common--/definitions/funding_instrument))
         
         
      - **funding_option_id**
         <a name="common--/definitions/payer/properties/funding_option_id"/>`{string}`<br>
      - **payer_info**
-        [Payer information(common#/definitions/payer_info)](zSchemaDefinitions.md#common--/definitions/payer_info))
+        [Payer information(common#/definitions/payer_info)](#common--/definitions/payer_info))
     
     <br>
  - **common#/definitions/funding_instrument**
@@ -2430,9 +2430,9 @@ SCHEMA common
     Properties:
     
      - **credit_card**
-        [Credit card information(common#/definitions/credit_card)](zSchemaDefinitions.md#common--/definitions/credit_card))
+        [Credit card information(common#/definitions/credit_card)](#common--/definitions/credit_card))
      - **credit_card_token**
-        [Credit card token(common#/definitions/credit_card_token)](zSchemaDefinitions.md#common--/definitions/credit_card_token))
+        [Credit card token(common#/definitions/credit_card_token)](#common--/definitions/credit_card_token))
     
     <br>
  - **common#/definitions/credit_card**
@@ -2467,7 +2467,7 @@ SCHEMA common
         <a name="common--/definitions/credit_card/properties/last_name"/>`{string}`<br>
         Constraints: `minLength`: `1`<br>
      - **billing_address**
-        [Address(common#/definitions/address)](zSchemaDefinitions.md#common--/definitions/address))
+        [Address(common#/definitions/address)](#common--/definitions/address))
      - **external_customer_id**
         <a name="common--/definitions/credit_card/properties/external_customer_id"/>`{string}`<br>
         Constraints: `minLength`: `1`<br>
@@ -2548,7 +2548,7 @@ SCHEMA common
         <a name="common--/definitions/payer_info/properties/country_code"/>`{string}`<br>
         Constraints: `minLength`: `1`<br>
      - **shipping_address**
-        [Shipping address(common#/definitions/shipping_address)](zSchemaDefinitions.md#common--/definitions/shipping_address))
+        [Shipping address(common#/definitions/shipping_address)](#common--/definitions/shipping_address))
      - **tax_id_type**
         <a name="common--/definitions/payer_info/properties/tax_id_type"/>`{string}`<br>
         Constraints: `minLength`: `1`<br>
@@ -2589,7 +2589,7 @@ SCHEMA common
  - **common#/definitions/shipping_address**
     *Could be allOf:*
     
-     - [Address(common#/definitions/address)](zSchemaDefinitions.md#common--/definitions/address))
+     - [Address(common#/definitions/address)](#common--/definitions/address))
      - <a name="common--/definitions/shipping_address/allOf/1"/>`{object}`<br>
         Additional properties allowed: `true`<br>
         Properties:
@@ -2613,7 +2613,7 @@ SCHEMA common
         <a name="common--/definitions/override_charge_model/properties/charge_id"/>`{string}`<br>
         Constraints: `minLength`: `1`<br>
      - **amount**
-        [(common#/definitions/currency)](zSchemaDefinitions.md#common--/definitions/currency))
+        [(common#/definitions/currency)](#common--/definitions/currency))
     
     <br>
  - **common#/definitions/item**
@@ -2644,13 +2644,13 @@ SCHEMA common
      - **supplementary_data**
         <a name="common--/definitions/item/properties/supplementary_data"/>`{array}`<br>
         Each item should be:
-        [KeyValue object(common#/definitions/kv)](zSchemaDefinitions.md#common--/definitions/kv))
+        [KeyValue object(common#/definitions/kv)](#common--/definitions/kv))
         
         
      - **postback_data**
         <a name="common--/definitions/item/properties/postback_data"/>`{array}`<br>
         Each item should be:
-        [KeyValue object(common#/definitions/kv)](zSchemaDefinitions.md#common--/definitions/kv))
+        [KeyValue object(common#/definitions/kv)](#common--/definitions/kv))
         
         
     
@@ -2801,7 +2801,7 @@ Properties:
     <a name="plan--/properties/description"/>`{string}`<br>
     Constraints: `minLength`: `1`<br>
  - **type**
-    [(#/definitions/type)](zSchemaDefinitions.md#plan--/definitions/type))
+    [(#/definitions/type)](#plan--/definitions/type))
  - **state**
     <a name="plan--/properties/state"/>`{string}`<br>
     Constraints: `minLength`: `1`<br>
@@ -2814,21 +2814,21 @@ Properties:
  - **payment_definitions**
     <a name="plan--/properties/payment_definitions"/>`{array}`<br>
     Each item should be:
-    [Payment definition(common#/definitions/payment_definition)](zSchemaDefinitions.md#common--/definitions/payment_definition))
+    [Payment definition(common#/definitions/payment_definition)](#common--/definitions/payment_definition))
     
     
  - **terms**
     <a name="plan--/properties/terms"/>`{array}`<br>
     Each item should be:
-    [Term(common#/definitions/term)](zSchemaDefinitions.md#common--/definitions/term))
+    [Term(common#/definitions/term)](#common--/definitions/term))
     
     
  - **merchant_preferences**
-    [Merchant preferences(common#/definitions/merchant_preferences)](zSchemaDefinitions.md#common--/definitions/merchant_preferences))
+    [Merchant preferences(common#/definitions/merchant_preferences)](#common--/definitions/merchant_preferences))
  - **links**
     <a name="plan--/properties/links"/>`{array}`<br>
     Each item should be:
-    [Payment system provided links(common#/definitions/links)](zSchemaDefinitions.md#common--/definitions/links))
+    [Payment system provided links(common#/definitions/links)](#common--/definitions/links))
     
     
 
@@ -2844,7 +2844,7 @@ Properties:
     Additional properties should be:
     
     
-     - [(#/definitions/feature)](zSchemaDefinitions.md#plan--/definitions/feature))
+     - [(#/definitions/feature)](#plan--/definitions/feature))
     
     <br>
  - **plan#/definitions/level**
@@ -2897,7 +2897,7 @@ Properties:
     <a name="sale--/properties/intent"/>`{string}`<br>
     Constraints: `enum`: `["sale","authorize","order"]`<br>
  - **payer**
-    [Payer information(common#/definitions/payer)](zSchemaDefinitions.md#common--/definitions/payer))
+    [Payer information(common#/definitions/payer)](#common--/definitions/payer))
  - **transactions**
     <a name="sale--/properties/transactions"/>`{array}`<br>
     
@@ -2942,7 +2942,7 @@ Properties:
          - **items**
             <a name="sale--/properties/transactions/items/properties/item_list/properties/items"/>`{array}`<br>
             Each item should be:
-            [Purchase item(common#/definitions/item)](zSchemaDefinitions.md#common--/definitions/item))
+            [Purchase item(common#/definitions/item)](#common--/definitions/item))
             
             
         
@@ -3034,21 +3034,21 @@ Properties:
     <a name="response.common.agreement--/properties/start_date"/>`{string}`<br>
     Constraints: `minLength`: `1`<br>
  - **agreement_details**
-    [Agreement details(common#/definitions/agreement_details)](zSchemaDefinitions.md#common--/definitions/agreement_details))
+    [Agreement details(common#/definitions/agreement_details)](#common--/definitions/agreement_details))
  - **payer**
-    [Payer information(common#/definitions/payer)](zSchemaDefinitions.md#common--/definitions/payer))
+    [Payer information(common#/definitions/payer)](#common--/definitions/payer))
  - **shipping_address**
-    [Address(common#/definitions/address)](zSchemaDefinitions.md#common--/definitions/address))
+    [Address(common#/definitions/address)](#common--/definitions/address))
  - **override_merchant_preferences**
-    [Merchant preferences(common#/definitions/merchant_preferences)](zSchemaDefinitions.md#common--/definitions/merchant_preferences))
+    [Merchant preferences(common#/definitions/merchant_preferences)](#common--/definitions/merchant_preferences))
  - **override_charge_models**
     <a name="response.common.agreement--/properties/override_charge_models"/>`{array}`<br>
     Each item should be:
-    [Override charge model(common#/definitions/override_charge_model)](zSchemaDefinitions.md#common--/definitions/override_charge_model))
+    [Override charge model(common#/definitions/override_charge_model)](#common--/definitions/override_charge_model))
     
     
  - **plan**
-    [[response.common] Payment plan object(response.common.plan#)](zSchemaDefinitions.md#response.common.plan--))
+    [[response.common] Payment plan object(response.common.plan#)](#response.common.plan--))
  - **create_time**
     <a name="response.common.agreement--/properties/create_time"/>`{string}`<br>
     Constraints: `minLength`: `1`<br>
@@ -3058,7 +3058,7 @@ Properties:
  - **links**
     <a name="response.common.agreement--/properties/links"/>`{array}`<br>
     Each item should be:
-    [Payment system provided links(common#/definitions/links)](zSchemaDefinitions.md#common--/definitions/links))
+    [Payment system provided links(common#/definitions/links)](#common--/definitions/links))
     
     
 
@@ -3104,7 +3104,7 @@ SCHEMA response.common
         <a name="response.common--/definitions/payment_definition/properties/cycles"/>`{string}`<br>
         Constraints: `minLength`: `1`<br>
      - **amount**
-        [(common#/definitions/currency)](zSchemaDefinitions.md#common--/definitions/currency))
+        [(common#/definitions/currency)](#common--/definitions/currency))
      - **charge_models**
         <a name="response.common--/definitions/payment_definition/properties/charge_models"/>`{array}`<br>
         Each item should be:
@@ -3120,7 +3120,7 @@ SCHEMA response.common
             <a name="response.common--/definitions/payment_definition/properties/charge_models/items/properties/type"/>`{string}`<br>
             Constraints: `minLength`: `1`<br>
          - **amount**
-            [(common#/definitions/currency)](zSchemaDefinitions.md#common--/definitions/currency))
+            [(common#/definitions/currency)](#common--/definitions/currency))
         
         
         
@@ -3135,7 +3135,7 @@ SCHEMA response.common
         <a name="response.common--/definitions/merchant_preferences/properties/id"/>`{string}`<br>
         Constraints: `minLength`: `1`<br>
      - **setup_fee**
-        [(common#/definitions/currency)](zSchemaDefinitions.md#common--/definitions/currency))
+        [(common#/definitions/currency)](#common--/definitions/currency))
      - **cancel_url**
         <a name="response.common--/definitions/merchant_preferences/properties/cancel_url"/>`{string}`<br>
         Constraints: `minLength`: `1`<br>
@@ -3222,7 +3222,7 @@ Properties:
  - **hidden**
     <a name="response.common.plan--/properties/hidden"/>`{boolean}`<br>
  - **type**
-    [(plan#/definitions/type)](zSchemaDefinitions.md#plan--/definitions/type))
+    [(plan#/definitions/type)](#plan--/definitions/type))
  - **state**
     <a name="response.common.plan--/properties/state"/>`{string}`<br>
     Constraints: `minLength`: `1`<br>
@@ -3235,21 +3235,21 @@ Properties:
  - **payment_definitions**
     <a name="response.common.plan--/properties/payment_definitions"/>`{array}`<br>
     Each item should be:
-    [(response.common#/definitions/payment_definition)](zSchemaDefinitions.md#response.common--/definitions/payment_definition))
+    [(response.common#/definitions/payment_definition)](#response.common--/definitions/payment_definition))
     
     
  - **terms**
     <a name="response.common.plan--/properties/terms"/>`{array}`<br>
     Each item should be:
-    [Term(common#/definitions/term)](zSchemaDefinitions.md#common--/definitions/term))
+    [Term(common#/definitions/term)](#common--/definitions/term))
     
     
  - **merchant_preferences**
-    [(response.common#/definitions/merchant_preferences)](zSchemaDefinitions.md#response.common--/definitions/merchant_preferences))
+    [(response.common#/definitions/merchant_preferences)](#response.common--/definitions/merchant_preferences))
  - **links**
     <a name="response.common.plan--/properties/links"/>`{array}`<br>
     Each item should be:
-    [Payment system provided links(common#/definitions/links)](zSchemaDefinitions.md#common--/definitions/links))
+    [Payment system provided links(common#/definitions/links)](#common--/definitions/links))
     
     
  - **httpStatusCode**
@@ -3294,7 +3294,7 @@ Properties:
     #TODO
     
  - **payer**
-    [Payer information(common#/definitions/payer)](zSchemaDefinitions.md#common--/definitions/payer))
+    [Payer information(common#/definitions/payer)](#common--/definitions/payer))
  - **cart**
     <a name="response.common.sale--/properties/cart"/>`{string}`<br>
     
@@ -3309,13 +3309,13 @@ Properties:
  - **transactions**
     <a name="response.common.sale--/properties/transactions"/>`{array}`<br>
     Each item should be:
-    [(#/definitions/transaction)](zSchemaDefinitions.md#response.common.sale--/definitions/transaction))
+    [(#/definitions/transaction)](#response.common.sale--/definitions/transaction))
     
     
  - **failed_transactions**
     <a name="response.common.sale--/properties/failed_transactions"/>`{array}`<br>
     Each item should be:
-    [(#/definitions/transaction)](zSchemaDefinitions.md#response.common.sale--/definitions/transaction))
+    [(#/definitions/transaction)](#response.common.sale--/definitions/transaction))
     
     
  - **billing_agreement_tokens**
@@ -3329,7 +3329,7 @@ Properties:
  - **links**
     <a name="response.common.sale--/properties/links"/>`{array}`<br>
     Each item should be:
-    [Payment system provided links(common#/definitions/links)](zSchemaDefinitions.md#common--/definitions/links))
+    [Payment system provided links(common#/definitions/links)](#common--/definitions/links))
     
     
 
@@ -3375,7 +3375,7 @@ Properties:
          - **items**
             <a name="response.common.sale--/definitions/transaction/properties/item_list/properties/items"/>`{array}`<br>
             Each item should be:
-            [(response.common#/definitions/transaction_item)](zSchemaDefinitions.md#response.common--/definitions/transaction_item))
+            [(response.common#/definitions/transaction_item)](#response.common--/definitions/transaction_item))
             
             
         
@@ -3414,7 +3414,7 @@ Properties:
     <a name="response.common.subscription--/properties/name"/>`{string}`<br>
     Constraints: `minLength`: `1`<br>
  - **definition**
-    [Payment definition(common#/definitions/payment_definition)](zSchemaDefinitions.md#common--/definitions/payment_definition))
+    [Payment definition(common#/definitions/payment_definition)](#common--/definitions/payment_definition))
 
 
 
@@ -3438,7 +3438,7 @@ Properties:
  - **type**
     <a name="response.common.transaction-common--/properties/type"/>`{number}`<br>
  - **owner**
-    [Payment owner(common#/definitions/owner)](zSchemaDefinitions.md#common--/definitions/owner))
+    [Payment owner(common#/definitions/owner)](#common--/definitions/owner))
  - **agreementId**
     <a name="response.common.transaction-common--/properties/agreementId"/>`{string}`<br>
  - **payer**
@@ -3487,11 +3487,11 @@ Properties:
  - **time_zone**
     <a name="response.common.transaction-info--/properties/time_zone"/>`{string}`<br>
  - **amount**
-    [Amount(response.common#/definitions/amount)](zSchemaDefinitions.md#response.common--/definitions/amount))
+    [Amount(response.common#/definitions/amount)](#response.common--/definitions/amount))
  - **fee_amount**
-    [Fee amount(response.common#/definitions/amount)](zSchemaDefinitions.md#response.common--/definitions/amount))
+    [Fee amount(response.common#/definitions/amount)](#response.common--/definitions/amount))
  - **net_amount**
-    [Net amount(response.common#/definitions/amount)](zSchemaDefinitions.md#response.common--/definitions/amount))
+    [Net amount(response.common#/definitions/amount)](#response.common--/definitions/amount))
 
 
 
@@ -3518,11 +3518,11 @@ Properties:
  - **status**
     <a name="response.common.transaction--/properties/status"/>`{string}`<br>
  - **owner**
-    [Payment owner(common#/definitions/owner)](zSchemaDefinitions.md#common--/definitions/owner))
+    [Payment owner(common#/definitions/owner)](#common--/definitions/owner))
  - **transaction_type**
     <a name="response.common.transaction--/properties/transaction_type"/>`{string}`<br>
  - **transaction**
-    [[response.common] Transaction information object(response.common.transaction-info#)](zSchemaDefinitions.md#response.common.transaction-info--))
+    [[response.common] Transaction information object(response.common.transaction-info#)](#response.common.transaction-info--))
  - **time_stamp**
     <a name="response.common.transaction--/properties/time_stamp"/>`{number}`<br>
 
